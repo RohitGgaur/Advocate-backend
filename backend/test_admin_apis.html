@@ -37,28 +37,28 @@
 
         <div class="api-section">
             <h3>1️⃣ Get Single Admin by ID</h3>
-            <div class="url">GET http://localhost:5000/api/admin/68c563623a278f13e1975998</div>
+            <div class="url">GET http://72.60.103.43:5000/api/admin/68c563623a278f13e1975998</div>
             <button onclick="testSingleAdmin()">Test Single Admin API</button>
             <div id="singleAdminResult" class="response"></div>
         </div>
 
         <div class="api-section">
             <h3>2️⃣ Get All Admins List</h3>
-            <div class="url">GET http://localhost:5000/api/admin/list</div>
+            <div class="url">GET http://72.60.103.43:5000/api/admin/list</div>
             <button onclick="testAllAdmins()">Test All Admins API</button>
             <div id="allAdminsResult" class="response"></div>
         </div>
 
         <div class="api-section">
             <h3>3️⃣ Get Admin Statistics</h3>
-            <div class="url">GET http://localhost:5000/api/admin/stats</div>
+            <div class="url">GET http://72.60.103.43:5000/api/admin/stats</div>
             <button onclick="testAdminStats()">Test Admin Stats API</button>
             <div id="adminStatsResult" class="response"></div>
         </div>
 
         <div class="api-section">
             <h3>4️⃣ Get Admins with Query Parameters</h3>
-            <div class="url">GET http://localhost:5000/api/admin/list?page=1&limit=5&is_active=true</div>
+            <div class="url">GET http://72.60.103.43:5000/api/admin/list?page=1&limit=5&is_active=true</div>
             <button onclick="testFilteredAdmins()">Test Filtered Admins API</button>
             <div id="filteredAdminsResult" class="response"></div>
         </div>
@@ -71,7 +71,7 @@
     </div>
 
     <script>
-        const BASE_URL = 'http://localhost:5000/api/admin';
+        const BASE_URL = 'http://72.60.103.43:5000/api/admin';
         const ADMIN_ID = '68c563623a278f13e1975998';
 
         function showResult(elementId, data, isError = false) {

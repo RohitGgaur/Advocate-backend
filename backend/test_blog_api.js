@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = 'http://72.60.103.43:5000/api';
 
 async function testBlogAPI() {
     console.log('🧪 Testing Blog API...\n');

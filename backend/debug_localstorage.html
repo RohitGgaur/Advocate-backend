@@ -192,8 +192,8 @@
                     throw new Error('No admin ID found');
                 }
 
-                console.log('🌐 Making API call to:', `http://localhost:5000/api/admin/${adminId}`);
-                const response = await fetch(`http://localhost:5000/api/admin/${adminId}`);
+                console.log('🌐 Making API call to:', `http://72.60.103.43:5000/api/admin/${adminId}`);
+                const response = await fetch(`http://72.60.103.43:5000/api/admin/${adminId}`);
                 const data = await response.json();
 
                 if (response.ok && data.success) {

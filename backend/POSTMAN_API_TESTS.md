@@ -2,12 +2,12 @@
 
 ## Base URL
 ```
-http://localhost:5000/api
+http://72.60.103.43:5000/api
 ```
 
 ## 1. GET Reviews (Public) - For Home Page
 **Method:** GET  
-**URL:** `http://localhost:5000/api/reviews/public`  
+**URL:** `http://72.60.103.43:5000/api/reviews/public`  
 **Headers:** None required  
 **Body:** None  
 
@@ -18,12 +18,12 @@ http://localhost:5000/api
 
 **Example with parameters:**
 ```
-http://localhost:5000/api/reviews/public?limit=5&status=approved
+http://72.60.103.43:5000/api/reviews/public?limit=5&status=approved
 ```
 
 ## 2. GET All Reviews (Admin) - For Admin Panel
 **Method:** GET  
-**URL:** `http://localhost:5000/api/reviews/admin/all`  
+**URL:** `http://72.60.103.43:5000/api/reviews/admin/all`  
 **Headers:** 
 ```
 Authorization: Bearer YOUR_ADMIN_TOKEN
@@ -41,7 +41,7 @@ Content-Type: application/json
 
 ## 3. POST Review (Submit New Review)
 **Method:** POST  
-**URL:** `http://localhost:5000/api/reviews/submit`  
+**URL:** `http://72.60.103.43:5000/api/reviews/submit`  
 **Headers:** 
 ```
 Content-Type: application/json
@@ -64,13 +64,13 @@ Content-Type: application/json
 
 ## 4. GET Single Review
 **Method:** GET  
-**URL:** `http://localhost:5000/api/reviews/{review_id}`  
+**URL:** `http://72.60.103.43:5000/api/reviews/{review_id}`  
 **Headers:** None required  
 **Body:** None  
 
 ## 5. UPDATE Review Status (Admin)
 **Method:** PATCH  
-**URL:** `http://localhost:5000/api/reviews/{review_id}/status`  
+**URL:** `http://72.60.103.43:5000/api/reviews/{review_id}/status`  
 **Headers:** 
 ```
 Authorization: Bearer YOUR_ADMIN_TOKEN
@@ -85,7 +85,7 @@ Content-Type: application/json
 
 ## 6. UPDATE Review Featured Status (Admin)
 **Method:** PATCH  
-**URL:** `http://localhost:5000/api/reviews/{review_id}/featured`  
+**URL:** `http://72.60.103.43:5000/api/reviews/{review_id}/featured`  
 **Headers:** 
 ```
 Authorization: Bearer YOUR_ADMIN_TOKEN
@@ -100,7 +100,7 @@ Content-Type: application/json
 
 ## 7. DELETE Review (Admin)
 **Method:** DELETE  
-**URL:** `http://localhost:5000/api/reviews/{review_id}`  
+**URL:** `http://72.60.103.43:5000/api/reviews/{review_id}`  
 **Headers:** 
 ```
 Authorization: Bearer YOUR_ADMIN_TOKEN
@@ -110,7 +110,7 @@ Content-Type: application/json
 
 ## 8. GET Review Statistics (Admin)
 **Method:** GET  
-**URL:** `http://localhost:5000/api/reviews/stats/overview`  
+**URL:** `http://72.60.103.43:5000/api/reviews/stats/overview`  
 **Headers:** 
 ```
 Authorization: Bearer YOUR_ADMIN_TOKEN
@@ -172,12 +172,12 @@ Content-Type: application/json
 2. **Test GET Reviews:**
    - Open Postman
    - Create new GET request
-   - URL: `http://localhost:5000/api/reviews/public`
+   - URL: `http://72.60.103.43:5000/api/reviews/public`
    - Send request
 
 3. **Test POST Review:**
    - Create new POST request
-   - URL: `http://localhost:5000/api/reviews/submit`
+   - URL: `http://72.60.103.43:5000/api/reviews/submit`
    - Headers: `Content-Type: application/json`
    - Body: Use the JSON example above
    - Send request

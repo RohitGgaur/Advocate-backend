@@ -14,7 +14,7 @@ async function testLargePayload() {
       status: 'draft'
     };
     
-    const response1 = await axios.post('http://localhost:5000/api/blogs', smallPayload);
+    const response1 = await axios.post('http://72.60.103.43:5000/api/blogs', smallPayload);
     console.log('✅ Small payload success:', response1.status);
     
     // Test 2: Large payload (base64 image)
@@ -28,7 +28,7 @@ async function testLargePayload() {
       status: 'draft'
     };
     
-    const response2 = await axios.post('http://localhost:5000/api/blogs', largePayload);
+    const response2 = await axios.post('http://72.60.103.43:5000/api/blogs', largePayload);
     console.log('✅ Large payload success:', response2.status);
     
   } catch (error) {

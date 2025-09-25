@@ -54,7 +54,7 @@
         <div class="card">
             <h3>📋 Instructions</h3>
             <ol>
-                <li>Make sure your backend server is running on <code>http://localhost:5000</code></li>
+                <li>Make sure your backend server is running on <code>http://72.60.103.43:5000</code></li>
                 <li>Click "Clear All Local Data" to remove mock data</li>
                 <li>Refresh your frontend application</li>
                 <li>The frontend will now fetch fresh data from the backend</li>
@@ -163,7 +163,7 @@
             try {
                 showResult('🔄 Testing backend connection...', 'info');
                 
-                const response = await fetch('http://localhost:5000/api/admin/68c563623a278f13e1975998');
+                const response = await fetch('http://72.60.103.43:5000/api/admin/68c563623a278f13e1975998');
                 
                 if (response.ok) {
                     const data = await response.json();
@@ -172,7 +172,7 @@
                     showResult(`❌ Backend responded with status: ${response.status}`, 'error');
                 }
             } catch (error) {
-                showResult(`❌ Backend connection failed: ${error.message}. Make sure the backend server is running on http://localhost:5000`, 'error');
+                showResult(`❌ Backend connection failed: ${error.message}. Make sure the backend server is running on http://72.60.103.43:5000`, 'error');
             }
         }
 

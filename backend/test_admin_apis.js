@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const BASE_URL = 'http://localhost:5000/api/admin';
+const BASE_URL = 'http://72.60.103.43:5000/api/admin';
 const ADMIN_ID = '68c563623a278f13e1975998';
 
 async function testAdminAPIs() {
