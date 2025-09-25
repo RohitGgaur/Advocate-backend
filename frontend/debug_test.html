@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Test</title>
+</head>
+<body>
+    <h1>Debug Test</h1>
+    <button onclick="testContact()">Test Contact</button>
+    <button onclick="testReview()">Test Review</button>
+    <div id="result"></div>
+
+    <script>
+        async function testContact() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Testing contact...';
+            
+            try {
+                const response = await fetch('http://localhost:5000/api/contact/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: 'Test User',
+                        email: 'test@example.com',
+                        phone: '+91-9876543210',
+                        subject: 'Test Subject',
+                        message: 'Test message'
+                    })
+                });
+                
+                const data = await response.json();
+                resultDiv.innerHTML = `<h3>Contact Test Result:</h3><pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                resultDiv.innerHTML = `<h3>Contact Test Error:</h3><p>${error.message}</p>`;
+            }
+        }
+
+        async function testReview() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Testing review...';
+            
+            try {
+                const response = await fetch('http://localhost:5000/api/reviews/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: 'Test Reviewer',
+                        email: 'reviewer@example.com',
+                        overall_rating: 5,
+                        category_ratings: {
+                            communication: 5,
+                            professionalism: 4,
+                            response: 5
+                        },
+                        feedback_text: 'Great service!',
+                        recommendation: 'yes'
+                    })
+                });
+                
+                const data = await response.json();
+                resultDiv.innerHTML = `<h3>Review Test Result:</h3><pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                resultDiv.innerHTML = `<h3>Review Test Error:</h3><p>${error.message}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>

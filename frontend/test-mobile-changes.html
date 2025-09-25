@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Changes Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #8b8b8b;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .mobile-test {
+            padding: 8px;
+            margin: 8px 0;
+        }
+        .desktop-test {
+            padding: 16px;
+            margin: 16px 0;
+        }
+        @media (min-width: 768px) {
+            .mobile-test {
+                padding: 16px;
+                margin: 16px 0;
+            }
+        }
+        h1 {
+            font-size: 24px;
+            margin: 8px 0;
+        }
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 48px;
+                margin: 16px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test-section">
+        <h1>Mobile Changes Test</h1>
+        <p>This is a test to verify mobile responsive changes are working.</p>
+        
+        <div class="mobile-test">
+            <h2>Mobile Padding Test</h2>
+            <p>This should have smaller padding on mobile (8px) and larger on desktop (16px).</p>
+        </div>
+        
+        <div class="desktop-test">
+            <h2>Desktop Padding Test</h2>
+            <p>This should have consistent padding across all screen sizes.</p>
+        </div>
+    </div>
+    
+    <script>
+        console.log('Mobile changes test loaded');
+        console.log('Current viewport width:', window.innerWidth);
+        
+        // Test responsive behavior
+        function testResponsive() {
+            const isMobile = window.innerWidth < 768;
+            console.log('Is mobile:', isMobile);
+            console.log('Expected padding:', isMobile ? '8px' : '16px');
+        }
+        
+        testResponsive();
+        window.addEventListener('resize', testResponsive);
+    </script>
+</body>
+</html>

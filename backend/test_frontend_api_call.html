@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend API Call Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .card { background: white; padding: 20px; margin: 20px 0; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .success { border-left: 4px solid #28a745; }
+        .error { border-left: 4px solid #dc3545; }
+        .info { border-left: 4px solid #17a2b8; }
+        button { padding: 12px 24px; margin: 8px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #0056b3; }
+        pre { background: #f8f9fa; padding: 15px; border-radius: 5px; overflow-x: auto; border: 1px solid #e9ecef; }
+        .step { margin: 20px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Frontend API Call Test</h1>
+        <p>This simulates the exact API calls that the frontend makes.</p>
+
+        <div class="card info">
+            <h3>📋 Test Steps</h3>
+            <div class="step">
+                <h4>Step 1: Clear localStorage</h4>
+                <button onclick="clearLocalStorage()">Clear localStorage</button>
+                <div id="step1Result"></div>
+            </div>
+
+            <div class="step">
+                <h4>Step 2: Set Real Admin Data</h4>
+                <button onclick="setRealAdminData()">Set Real Admin Data</button>
+                <div id="step2Result"></div>
+            </div>
+
+            <div class="step">
+                <h4>Step 3: Test API Call (like frontend does)</h4>
+                <button onclick="testFrontendAPICall()">Test Frontend API Call</button>
+                <div id="step3Result"></div>
+            </div>
+
+            <div class="step">
+                <h4>Step 4: Verify Data Storage</h4>
+                <button onclick="verifyDataStorage()">Verify Data Storage</button>
+                <div id="step4Result"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>📊 Current Status</h3>
+            <div id="currentStatus">
+                <p>Click "Check Status" to see current data</p>
+            </div>
+            <button onclick="checkStatus()">Check Status</button>
+        </div>
+
+        <div class="card">
+            <h3>🔍 Console Logs</h3>
+            <div id="consoleLogs">
+                <p>Console logs will appear here...</p>
+            </div>
+            <button onclick="clearConsoleLogs()">Clear Logs</button>
+        </div>
+    </div>
+
+    <script>
+        const ADMIN_ID = '68c563623a278f13e1975998';
+        const API_BASE_URL = 'http://localhost:5000/api';
+
+        // Override console.log to capture logs
+        const originalLog = console.log;
+        const originalError = console.error;
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            addToConsoleLogs('LOG', args.join(' '));
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            addToConsoleLogs('ERROR', args.join(' '));
+        };
+
+        function addToConsoleLogs(type, message) {
+            const logsDiv = document.getElementById('consoleLogs');
+            const logDiv = document.createElement('div');
+            logDiv.className = `card ${type === 'ERROR' ? 'error' : 'info'}`;
+            logDiv.innerHTML = `<strong>[${type}]</strong> ${message}`;
+            logsDiv.appendChild(logDiv);
+        }
+
+        function clearConsoleLogs() {
+            document.getElementById('consoleLogs').innerHTML = '<p>Console logs cleared...</p>';
+        }
+
+        function showResult(stepId, message, isError = false) {
+            const element = document.getElementById(stepId);
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `card ${isError ? 'error' : 'success'}`;
+            resultDiv.innerHTML = `<p>${message}</p>`;
+            element.appendChild(resultDiv);
+        }
+
+        function clearLocalStorage() {
+            try {
+                localStorage.clear();
+                console.log('✅ localStorage cleared');
+                showResult('step1Result', '✅ localStorage cleared successfully', false);
+            } catch (error) {
+                console.error('❌ Error clearing localStorage:', error);
+                showResult('step1Result', `❌ Error: ${error.message}`, true);
+            }
+        }
+
+        function setRealAdminData() {
+            try {
+                const realAdminData = {
+                    _id: ADMIN_ID,
+                    username: 'Rohit Gaur',
+                    email: 'gaur0423@gmail.com',
+                    role: 'admin',
+                    is_active: true,
+                    createdAt: '2025-09-13T12:28:18.990+00:00',
+                    updatedAt: '2025-09-18T16:44:11.743+00:00',
+                    last_login: '2025-09-13T13:11:10.728+00:00'
+                };
+
+                localStorage.setItem('adminData', JSON.stringify(realAdminData));
+                console.log('✅ Real admin data set:', realAdminData);
+                showResult('step2Result', '✅ Real admin data set successfully', false);
+            } catch (error) {
+                console.error('❌ Error setting admin data:', error);
+                showResult('step2Result', `❌ Error: ${error.message}`, true);
+            }
+        }
+
+        async function testFrontendAPICall() {
+            try {
+                console.log('🔄 Testing frontend API call...');
+                
+                // Get admin data from localStorage (like frontend does)
+                const adminData = localStorage.getItem('adminData');
+                console.log('📊 Raw localStorage data:', adminData);
+                
+                if (!adminData) {
+                    throw new Error('No admin data in localStorage');
+                }
+
+                const admin = JSON.parse(adminData);
+                const adminId = admin._id || admin.id;
+                console.log('🆔 Extracted admin ID:', adminId);
+
+                if (!adminId || adminId.length !== 24) {
+                    throw new Error('Invalid admin ID format');
+                }
+
+                // Make API call (like frontend does)
+                console.log('🌐 Making API call to:', `${API_BASE_URL}/admin/${adminId}`);
+                const response = await fetch(`${API_BASE_URL}/admin/${adminId}`);
+                console.log('📡 Response status:', response.status);
+                
+                const data = await response.json();
+                console.log('📊 Response data:', data);
+
+                if (data.success && data.admin) {
+                    console.log('✅ API call successful');
+                    showResult('step3Result', '✅ API call successful - data received', false);
+                } else {
+                    throw new Error('Invalid response from API');
+                }
+            } catch (error) {
+                console.error('❌ API call failed:', error);
+                showResult('step3Result', `❌ API call failed: ${error.message}`, true);
+            }
+        }
+
+        function verifyDataStorage() {
+            try {
+                const storedData = localStorage.getItem('adminData');
+                console.log('🔍 Verifying stored data:', storedData);
+                
+                if (storedData) {
+                    const parsed = JSON.parse(storedData);
+                    console.log('✅ Parsed data:', parsed);
+                    showResult('step4Result', `✅ Data verification successful. Admin: ${parsed.username} (${parsed._id})`, false);
+                } else {
+                    throw new Error('No data in localStorage');
+                }
+            } catch (error) {
+                console.error('❌ Data verification failed:', error);
+                showResult('step4Result', `❌ Data verification failed: ${error.message}`, true);
+            }
+        }
+
+        function checkStatus() {
+            const statusDiv = document.getElementById('currentStatus');
+            const adminData = localStorage.getItem('adminData');
+            
+            if (adminData) {
+                try {
+                    const parsed = JSON.parse(adminData);
+                    statusDiv.innerHTML = `
+                        <div class="card success">
+                            <h4>✅ Data Found</h4>
+                            <pre>${JSON.stringify(parsed, null, 2)}</pre>
+                        </div>
+                    `;
+                } catch (error) {
+                    statusDiv.innerHTML = `
+                        <div class="card error">
+                            <h4>❌ Invalid Data</h4>
+                            <p>Error parsing data: ${error.message}</p>
+                        </div>
+                    `;
+                }
+            } else {
+                statusDiv.innerHTML = `
+                    <div class="card info">
+                        <h4>ℹ️ No Data</h4>
+                        <p>No admin data found in localStorage</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Auto-check on page load
+        window.onload = function() {
+            checkStatus();
+        };
+    </script>
+</body>
+</html>
+
+

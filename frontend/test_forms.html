@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Contact & Review Forms</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-button {
+            background: #4f46e5;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #4338ca;
+        }
+        .response {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+        .success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+        .error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test Contact & Review Forms</h1>
+    <p>This page tests the backend APIs for contact and review forms.</p>
+
+    <div class="test-section">
+        <h2>📧 Contact Form Test</h2>
+        <button class="test-button" onclick="testContactForm()">Test Contact Form Submission</button>
+        <div id="contactResponse" class="response" style="display: none;"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>⭐ Review Form Test</h2>
+        <button class="test-button" onclick="testReviewForm()">Test Review Form Submission</button>
+        <div id="reviewResponse" class="response" style="display: none;"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>📊 Get Reviews Test</h2>
+        <button class="test-button" onclick="testGetReviews()">Get Public Reviews</button>
+        <div id="reviewsResponse" class="response" style="display: none;"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>📈 Review Statistics Test</h2>
+        <button class="test-button" onclick="testReviewStats()">Get Review Statistics</button>
+        <div id="statsResponse" class="response" style="display: none;"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:5000/api';
+
+        async function testContactForm() {
+            const responseDiv = document.getElementById('contactResponse');
+            responseDiv.style.display = 'block';
+            responseDiv.textContent = 'Testing contact form...';
+
+            try {
+                const contactData = {
+                    name: 'Test User',
+                    email: 'test@example.com',
+                    phone: '+91-9876543210',
+                    subject: 'Test Contact Form',
+                    message: 'This is a test message from the contact form.'
+                };
+
+                const response = await fetch(`${API_BASE}/contact/submit`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(contactData)
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    responseDiv.className = 'response success';
+                    responseDiv.textContent = `✅ Contact form submitted successfully!\n\nResponse: ${JSON.stringify(data, null, 2)}`;
+                } else {
+                    responseDiv.className = 'response error';
+                    responseDiv.textContent = `❌ Contact form failed!\n\nError: ${JSON.stringify(data, null, 2)}`;
+                }
+            } catch (error) {
+                responseDiv.className = 'response error';
+                responseDiv.textContent = `❌ Network error: ${error.message}`;
+            }
+        }
+
+        async function testReviewForm() {
+            const responseDiv = document.getElementById('reviewResponse');
+            responseDiv.style.display = 'block';
+            responseDiv.textContent = 'Testing review form...';
+
+            try {
+                const reviewData = {
+                    name: 'Test Reviewer',
+                    email: 'reviewer@example.com',
+                    overall_rating: 5,
+                    category_ratings: {
+                        communication: 5,
+                        professionalism: 4,
+                        response: 5
+                    },
+                    feedback_text: 'Great service! Highly recommended.',
+                    recommendation: 'yes'
+                };
+
+                const response = await fetch(`${API_BASE}/reviews/submit`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(reviewData)
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    responseDiv.className = 'response success';
+                    responseDiv.textContent = `✅ Review submitted successfully!\n\nResponse: ${JSON.stringify(data, null, 2)}`;
+                } else {
+                    responseDiv.className = 'response error';
+                    responseDiv.textContent = `❌ Review submission failed!\n\nError: ${JSON.stringify(data, null, 2)}`;
+                }
+            } catch (error) {
+                responseDiv.className = 'response error';
+                responseDiv.textContent = `❌ Network error: ${error.message}`;
+            }
+        }
+
+        async function testGetReviews() {
+            const responseDiv = document.getElementById('reviewsResponse');
+            responseDiv.style.display = 'block';
+            responseDiv.textContent = 'Fetching reviews...';
+
+            try {
+                const response = await fetch(`${API_BASE}/reviews/public`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    responseDiv.className = 'response success';
+                    responseDiv.textContent = `✅ Reviews fetched successfully!\n\nFound ${data.data.reviews.length} reviews\n\nResponse: ${JSON.stringify(data, null, 2)}`;
+                } else {
+                    responseDiv.className = 'response error';
+                    responseDiv.textContent = `❌ Failed to fetch reviews!\n\nError: ${JSON.stringify(data, null, 2)}`;
+                }
+            } catch (error) {
+                responseDiv.className = 'response error';
+                responseDiv.textContent = `❌ Network error: ${error.message}`;
+            }
+        }
+
+        async function testReviewStats() {
+            const responseDiv = document.getElementById('statsResponse');
+            responseDiv.style.display = 'block';
+            responseDiv.textContent = 'Fetching review statistics...';
+
+            try {
+                const response = await fetch(`${API_BASE}/reviews/stats/overview`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    responseDiv.className = 'response success';
+                    responseDiv.textContent = `✅ Review statistics fetched successfully!\n\nResponse: ${JSON.stringify(data, null, 2)}`;
+                } else {
+                    responseDiv.className = 'response error';
+                    responseDiv.textContent = `❌ Failed to fetch statistics!\n\nError: ${JSON.stringify(data, null, 2)}`;
+                }
+            } catch (error) {
+                responseDiv.className = 'response error';
+                responseDiv.textContent = `❌ Network error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>

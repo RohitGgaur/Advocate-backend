@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Backend Connection Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .success { background: #d4edda; border-color: #c3e6cb; }
+        .error { background: #f8d7da; border-color: #f5c6cb; }
+        .info { background: #d1ecf1; border-color: #bee5eb; }
+        button { padding: 10px 20px; margin: 5px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        pre { background: #f8f9fa; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        .log { background: #000; color: #0f0; padding: 10px; border-radius: 5px; font-family: monospace; height: 300px; overflow-y: auto; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Real Backend Connection Test</h1>
+        
+        <div class="test-section info">
+            <h3>📋 Test Controls</h3>
+            <button onclick="testHealthCheck()">1. Health Check</button>
+            <button onclick="testGetAdmins()">2. Get All Admins</button>
+            <button onclick="testGetSingleAdmin()">3. Get Single Admin</button>
+            <button onclick="testUpdateAdmin()">4. Update Admin</button>
+            <button onclick="testCompleteFlow()">5. Complete Flow Test</button>
+            <button onclick="clearLog()">Clear Log</button>
+        </div>
+
+        <div class="test-section">
+            <h3>📊 Test Results</h3>
+            <div id="results"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>📝 Console Log</h3>
+            <div id="log" class="log"></div>
+        </div>
+    </div>
+
+    <script>
+        const BASE_URL = 'http://localhost:5000';
+        let currentAdminId = null;
+        let logElement = document.getElementById('log');
+        let resultsElement = document.getElementById('results');
+
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logMessage = `[${timestamp}] ${message}`;
+            logElement.innerHTML += logMessage + '\n';
+            logElement.scrollTop = logElement.scrollHeight;
+            console.log(logMessage);
+        }
+
+        function showResult(title, data, isSuccess = true) {
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `test-section ${isSuccess ? 'success' : 'error'}`;
+            resultDiv.innerHTML = `
+                <h4>${title}</h4>
+                <pre>${JSON.stringify(data, null, 2)}</pre>
+            `;
+            resultsElement.appendChild(resultDiv);
+        }
+
+        function clearLog() {
+            logElement.innerHTML = '';
+            resultsElement.innerHTML = '';
+        }
+
+        async function testHealthCheck() {
+            log('🔍 Testing health check...');
+            try {
+                const response = await fetch(`${BASE_URL}/api/health`);
+                const data = await response.json();
+                log('✅ Health check successful');
+                showResult('Health Check', data, true);
+            } catch (error) {
+                log('❌ Health check failed: ' + error.message);
+                showResult('Health Check Failed', { error: error.message }, false);
+            }
+        }
+
+        async function testGetAdmins() {
+            log('🔍 Testing get all admins...');
+            try {
+                const response = await fetch(`${BASE_URL}/api/admin/list`);
+                const data = await response.json();
+                log('✅ Get admins successful');
+                showResult('Get All Admins', data, true);
+                
+                if (data.admins && data.admins.length > 0) {
+                    currentAdminId = data.admins[0]._id;
+                    log(`👤 Found admin ID: ${currentAdminId}`);
+                    log(`👤 Admin username: ${data.admins[0].username}`);
+                    log(`👤 Admin email: ${data.admins[0].email}`);
+                } else {
+                    log('❌ No admins found');
+                }
+            } catch (error) {
+                log('❌ Get admins failed: ' + error.message);
+                showResult('Get Admins Failed', { error: error.message }, false);
+            }
+        }
+
+        async function testGetSingleAdmin() {
+            if (!currentAdminId) {
+                log('❌ No admin ID available. Run "Get All Admins" first.');
+                return;
+            }
+            
+            log(`🔍 Testing get single admin: ${currentAdminId}`);
+            try {
+                const response = await fetch(`${BASE_URL}/api/admin/${currentAdminId}`);
+                const data = await response.json();
+                log('✅ Get single admin successful');
+                showResult('Get Single Admin', data, true);
+                
+                if (data.success && data.admin) {
+                    log(`👤 Admin username: ${data.admin.username}`);
+                    log(`👤 Admin email: ${data.admin.email}`);
+                    log(`👤 Admin role: ${data.admin.role}`);
+                    log(`👤 Admin active: ${data.admin.is_active}`);
+                    log(`👤 Created: ${data.admin.createdAt}`);
+                    log(`👤 Updated: ${data.admin.updatedAt}`);
+                }
+            } catch (error) {
+                log('❌ Get single admin failed: ' + error.message);
+                showResult('Get Single Admin Failed', { error: error.message }, false);
+            }
+        }
+
+        async function testUpdateAdmin() {
+            if (!currentAdminId) {
+                log('❌ No admin ID available. Run "Get All Admins" first.');
+                return;
+            }
+            
+            log(`🔍 Testing update admin: ${currentAdminId}`);
+            try {
+                const updateData = {
+                    username: 'Rohit Gaur Real Test ' + Date.now(),
+                    email: 'gaur0423@gmail.com'
+                };
+                
+                const response = await fetch(`${BASE_URL}/api/admin/${currentAdminId}/profile`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(updateData)
+                });
+                
+                const data = await response.json();
+                log('✅ Update admin successful');
+                showResult('Update Admin', data, true);
+                
+                // Verify update
+                log('🔍 Verifying update...');
+                const verifyResponse = await fetch(`${BASE_URL}/api/admin/${currentAdminId}`);
+                const verifyData = await verifyResponse.json();
+                log('✅ Verify successful');
+                showResult('Verify Update', verifyData, true);
+                
+            } catch (error) {
+                log('❌ Update admin failed: ' + error.message);
+                showResult('Update Admin Failed', { error: error.message }, false);
+            }
+        }
+
+        async function testCompleteFlow() {
+            log('🔍 Testing complete flow...');
+            clearLog();
+            
+            await testHealthCheck();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            await testGetAdmins();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            await testGetSingleAdmin();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            await testUpdateAdmin();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            log('🎉 Complete flow test finished');
+        }
+
+        // Auto-start health check on page load
+        window.onload = function() {
+            log('🚀 Real backend connection test tool loaded');
+            testHealthCheck();
+        };
+    </script>
+</body>
+</html>
+
+
