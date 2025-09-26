@@ -49,7 +49,7 @@ mongoose.connect('mongodb://localhost:27017/judicioworks', {
 
 // Middleware
 app.use(cors({
-  origin: ['http://72.60.103.43:5173', 'http://72.60.103.43:5173'],
+  origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
@@ -138,12 +138,12 @@ app.post('/api/test-large', (req, res) => {
 const PORT = 5000;
 
 app.listen(PORT, () => {
-  console.log(`🚀 Backend Server running on http://72.60.103.43:${PORT}`);
-  console.log(`📊 Health check: http://72.60.103.43:${PORT}/api/health`);
-  console.log(`🧪 Test endpoint: http://72.60.103.43:${PORT}/api/test`);
-  console.log(`📝 Blogs: http://72.60.103.43:${PORT}/api/blogs`);
-  console.log(`👥 Users: http://72.60.103.43:${PORT}/api/users`);
-  console.log(`📈 Stats: http://72.60.103.43:${PORT}/api/stats`);
+  console.log(`🚀 Backend Server running on http://localhost:${PORT}`);
+  console.log(`📊 Health check: http://localhost:${PORT}/api/health`);
+  console.log(`🧪 Test endpoint: http://localhost:${PORT}/api/test`);
+  console.log(`📝 Blogs: http://localhost:${PORT}/api/blogs`);
+  console.log(`👥 Users: http://localhost:${PORT}/api/users`);
+  console.log(`📈 Stats: http://localhost:${PORT}/api/stats`);
 });
 
 module.exports = app;

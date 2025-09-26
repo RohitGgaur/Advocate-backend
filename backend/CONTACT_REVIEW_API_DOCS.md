@@ -5,7 +5,7 @@ This document describes the API endpoints for contact form submissions and revie
 
 ## Base URL
 ```
-http://72.60.103.43:5000/api
+http://72.60.103.43:5173/api
 ```
 
 ## Contact Form APIs

@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const BASE_URL = 'http://72.60.103.43:5000/api/admin';
+const BASE_URL = 'http://72.60.103.43:5173/api/admin';
 
 async function testAdminListAPI() {
     console.log('🧪 Testing Admin List API...\n');

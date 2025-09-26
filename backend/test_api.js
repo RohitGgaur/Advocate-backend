@@ -1,5 +1,5 @@
 // Simple API test script
-const API_BASE_URL = 'http://72.60.103.43:5000/api';
+const API_BASE_URL = 'http://72.60.103.43:5173/api';
 
 async function testAPI() {
     console.log('Testing API endpoints...\n');

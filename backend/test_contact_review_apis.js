@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const BASE_URL = 'http://72.60.103.43:5000/api';
+const BASE_URL = 'http://72.60.103.43:5173/api';
 
 // Test Contact Form Submission
 async function test_contact_form() {

@@ -15,7 +15,7 @@ dotenv.config();
 
 // Middleware
 app.use(cors({
-  origin: ['http://72.60.103.43:5173', 'http://72.60.103.43:5173', 'http://72.60.103.43:3000'],
+  origin: ['http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:3000'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Cache-Control', 'Pragma', 'Expires']
@@ -94,7 +94,7 @@ app.use('*', (req, res) => {
     });
 });
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
