@@ -110,13 +110,64 @@ router.post('/login', async (req, res) => {
 // Get current admin profile
 router.get('/me', async (req, res) => {
     try {
-        // For now, return a simple response
-        // In real app, you'd get admin ID from session or other auth method
-        res.json({
-            success: true,
-            message: 'Profile endpoint - implement session-based auth if needed'
+        console.log('🔍 /api/auth/me endpoint called - PRODUCTION VERSION');
+        console.log('🔍 Request headers:', req.headers);
+        console.log('🔍 Request origin:', req.get('origin'));
+        
+        // For now, return the hardcoded admin data
+        // In a real app, you'd get admin ID from JWT token or session
+        const admin_id = '68c563623a278f13e1975998';
+        
+        console.log('🔍 Looking for admin with ID:', admin_id);
+        
+        // Validate admin ID format
+        if (!admin_id.match(/^[0-9a-fA-F]{24}$/)) {
+            console.log('❌ Invalid admin ID format');
+            return res.status(400).json({
+                success: false,
+                message: 'Invalid admin ID format'
+            });
+        }
+
+        const admin = await Admin.findById(admin_id).select('-password');
+        console.log('🔍 Admin found:', admin ? 'YES' : 'NO');
+
+        if (!admin) {
+            console.log('❌ Admin not found in database');
+            return res.status(404).json({
+                success: false,
+                message: 'Admin not found'
+            });
+        }
+
+        console.log('✅ Admin data retrieved successfully');
+        console.log('📊 Admin details:', {
+            id: admin._id,
+            username: admin.username,
+            email: admin.email,
+            role: admin.role,
+            is_active: admin.is_active
         });
+
+        const response = {
+            success: true,
+            admin: {
+                _id: admin._id,
+                username: admin.username,
+                email: admin.email,
+                role: admin.role,
+                is_active: admin.is_active,
+                createdAt: admin.createdAt,
+                updatedAt: admin.updatedAt,
+                last_login: admin.last_login
+            },
+            debug: "PRODUCTION_VERSION_2024"
+        };
+
+        console.log('📤 Sending response:', response);
+        res.json(response);
     } catch (error) {
+        console.error('❌ Get profile error:', error);
         res.status(500).json({
             success: false,
             message: 'Error fetching profile',

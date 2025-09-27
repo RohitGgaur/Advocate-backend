@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://72.60.103.43:5173/api';
+const API_BASE_URL = 'http://localhost:5000/api';
 
 class ApiService {
   constructor() {
@@ -87,7 +87,7 @@ class ApiService {
     } catch (error) {
       console.error('❌ API Error:', error);
       if (error.message.includes('Failed to fetch')) {
-        console.error('❌ Backend server might not be running on localhost:5000');
+        console.error('❌ Backend server might not be running on 72.60.103.43:5000');
         throw new Error('Backend server is not running. Please start the backend server.');
       }
       throw error;
@@ -112,11 +112,7 @@ class ApiService {
   async getProfile() {
     console.log('API: Getting profile from backend...');
     
-    // Use the known admin ID directly from the API
-    const adminId = '68c563623a278f13e1975998';
-    console.log('API: Using direct admin ID for profile fetch:', adminId);
-    
-    const response = await this.request(`/admin/${adminId}`);
+    const response = await this.request('/auth/me');
     console.log('API: Profile response received:', response);
     
     // Store the response in localStorage for future use
@@ -124,7 +120,6 @@ class ApiService {
       localStorage.setItem('adminData', JSON.stringify(response.admin));
       console.log('API: Stored admin data in localStorage for future use');
     }
-    
     return response;
   }
 
