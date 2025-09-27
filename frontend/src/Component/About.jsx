@@ -1,6 +1,6 @@
 function About() {
 	return (
-		<div style={{ backgroundColor: '#8b8b8b', minHeight: '100vh' }}>
+		<div style={{ backgroundColor: '#F5F6F8', minHeight: '100vh' }}>
 		<section className="max-w-6xl mx-auto px-2 sm:px-6 lg:px-8 py-4 md:py-16">
 		{/* Main Heading */}
 		<div className="text-center mb-4 md:mb-16">
@@ -17,7 +17,7 @@ function About() {
 		<div className="bg-white rounded-lg shadow-lg p-2 md:p-8 mb-4 md:mb-12 border-l-4" style={{ borderLeftColor: '#374151' }}>
 			<div className="mb-1 md:mb-4">
 				<h2 className="text-sm md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">Welcome to Judicioworks Advocates and Associates</h2>
-				<p className="text-xs md:text-lg text-gray-600 font-medium">The Group Of Advocates You Need</p>
+				<p className="text-xs md:text-lg text-gray-600 font-medium">(The Group Of Advocates You Need)</p>
 			</div>
 			<p className="text-gray-700 leading-relaxed text-xs md:text-base text-justify">
 				where legal excellence meets client satisfaction. Our firm is dedicated to providing comprehensive legal solutions tailored to meet the diverse needs of our clients in Delhi-NCR, with a focus on Ghaziabad and Noida.

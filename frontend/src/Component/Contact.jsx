@@ -99,7 +99,7 @@ function Contact() {
 						Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Us</span>
 					</h1>
 					<p className="text-sm md:text-xl text-gray-600 max-w-2xl mx-auto mb-4 md:mb-8">
-						Get in touch with our legal experts for professional consultation
+						(Get in touch with our legal experts for professional consultation)
 					</p>
 					<div className="w-16 md:w-32 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full"></div>
 				</div>
@@ -148,7 +148,7 @@ function Contact() {
 											Indirapuram
 										</h3>
 										<p className="text-gray-600 text-xs leading-tight">
-											Chamber Address, Indirapuram, Ghaziabad
+											Shop No.19, Shipra Shopping Plaza Market, Shipra Sun City, Indirapuram, Ghaziabad-201014
 										</p>
 									</div>
 								</div>

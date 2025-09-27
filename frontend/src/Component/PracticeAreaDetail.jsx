@@ -8,9 +8,9 @@ import realEstateLawImage from '../assets/realstatelaw.webp'
 import complianceImage from '../assets/complience.webp'
 import convencingLawImage from '../assets/convencinglaw.webp'
 import writLawImage from '../assets/waitlaw.webp'
-import commercialLawImage from '../assets/Adv photos/33880aad-b7f8-408b-b487-bbe2fa2d4cc2.jpg'
-import consumerLawImage from '../assets/Adv photos/3c861e77-c005-4c02-88f7-660cd8dd863a.jpg'
-import laborLawImage from '../assets/Adv photos/3ec1a0af-3f0d-43bc-8cd7-c688c246fe37.jpg'
+import commercialLawImage from '../assets/civillaw.webp' // Using civil law image as fallback
+import consumerLawImage from '../assets/consumerlaw.jpg'
+import laborLawImage from '../assets/labourlaw.jpeg'
 
 // Debug: Log the image paths
 console.log('Criminal Law Image:', criminalLawImage);
@@ -25,24 +25,24 @@ function PracticeAreaDetail() {
 	const practiceAreas = [
 		{
 			id: 1,
+			title: "FAMILY LAW",
+			description: "At Judicioworks Advocates and Associates, we recognise the sensitive nature of family and matrimonial law matters and approach each case with both compassion and strategy. Our practice covers a wide range of family-related issues, including divorce, child custody, alimony, adoption, and matters arising from domestic concerns. We place emphasis on the well-being and best interests of our clients and their families, offering thoughtful legal advice, effective negotiation, and representation before the courts when required. We regularly assist clients before the Ld. District Courts of Ghaziabad (which includes Indirapuram, Vasundhara, and Vaishali) and in Gautam Buddha Nagar (which includes Noida, Greater Noida, and Greater Noida West), as well as before the Hon'ble High Courts and the Hon'ble Supreme Court of India.",
+			image: familyLawImage,
+			services: ["Divorce", "Child Custody", "Alimony", "Adoption", "Domestic Violence"]
+		},
+		{
+			id: 2,
 			title: "CRIMINAL LAW",
 			description: "Criminal law deals with offences, their prosecution, and the legal consequences that follow. At Judicioworks Advocates and Associates, our criminal law practice extends before the courts of Delhi, Ghaziabad, and Gautam Buddha Nagar. Matters arising from Indirapuram, Vaishali, and Vasundhara fall within the jurisdiction of the Ghaziabad courts, while cases from Noida, Greater Noida, and Greater Noida West are taken up before the courts of Gautam Buddha Nagar. Our advocates handle a broad spectrum of criminal cases, including serious charges such as rape, dowry death, and dowry harassment, as well as matters like traffic challans, narcotics-related offences, assault, theft, white-collar crimes, and juvenile cases. With considerable experience in criminal defence and a deep understanding of substantive and procedural law, we are committed to protecting the rights of individuals accused and ensuring due process at every stage of the proceedings.",
 			image: criminalLawImage,
 			services: ["Criminal Defense", "Prosecution", "Rights Protection", "Case Handling", "Legal Representation"]
 		},
 		{
-			id: 2,
+			id: 3,
 			title: "CIVIL LAW",
 			description: "At Judicioworks Advocates and Associates, our practice in civil law covers a wide spectrum of disputes and legal concerns affecting both individuals and businesses. Civil law matters may include contracts, property disputes, family law, personal injury claims, among others. Our team is dedicated to offering informed guidance and effective representation, ensuring that each matter is approached with due care and attention to its unique circumstances. From resolving contractual issues to addressing family law concerns or pursuing rightful claims, we assist clients before the Ld. District Courts of Ghaziabad (which includes Indirapuram, Vasundhara, and Vaishali) and in Gautam Buddha Nagar (which includes Noida, Greater Noida, and Greater Noida West), as well as before the Hon'ble High Courts and the Hon'ble Supreme Court of India.",
 			image: civilLawImage,
 			services: ["Contract Disputes", "Property Disputes", "Personal Injury", "Legal Representation", "Dispute Resolution"]
-		},
-		{
-			id: 3,
-			title: "FAMILY LAW",
-			description: "At Judicioworks Advocates and Associates, we recognise the sensitive nature of family and matrimonial law matters and approach each case with both compassion and strategy. Our practice covers a wide range of family-related issues, including divorce, child custody, alimony, adoption, and matters arising from domestic concerns. We place emphasis on the well-being and best interests of our clients and their families, offering thoughtful legal advice, effective negotiation, and representation before the courts when required. We regularly assist clients before the Ld. District Courts of Ghaziabad (which includes Indirapuram, Vasundhara, and Vaishali) and in Gautam Buddha Nagar (which includes Noida, Greater Noida, and Greater Noida West), as well as before the Hon'ble High Courts and the Hon'ble Supreme Court of India.",
-			image: familyLawImage,
-			services: ["Divorce", "Child Custody", "Alimony", "Adoption", "Domestic Violence"]
 		},
 		{
 			id: 4,
@@ -53,24 +53,24 @@ function PracticeAreaDetail() {
 		},
 		{
 			id: 5,
-			title: "CLAIM PETITIONS",
-			description: "At Judicioworks Advocates and Associates, we handle a wide spectrum of claim petitions, including railway accident claims and motor accident claims. Our work in this area focuses on ensuring that individuals and families receive just and fair compensation for the losses they have suffered. From gathering relevant evidence to addressing insurance-related concerns and, where necessary, representing clients before the courts, we provide structured legal support throughout the process. We regularly represent clients before the Ld. District Courts of Ghaziabad (which includes Indirapuram, Vasundhara, and Vaishali) and in Gautam Buddha Nagar (which includes Noida, Greater Noida, and Greater Noida West), as well as before the Hon'ble High Courts and the Hon'ble Supreme Court of India.",
-			image: complianceImage,
-			services: ["Railway Claims", "Motor Accident Claims", "Insurance Negotiation", "Evidence Gathering", "Court Representation"]
-		},
-		{
-			id: 6,
 			title: "COMMERCIAL LITIGATION",
 			description: "At Judicioworks Advocates and Associates, our commercial litigation practice addresses a wide range of business disputes, including recovery proceedings, cheque dishonour matters, and arbitration cases. We focus on providing structured and strategic legal solutions that align with the specific requirements of each matter. Our approach is centred on protecting commercial interests through effective representation, negotiation, and, where required, proceedings before the courts or arbitral tribunals. We regularly represent clients before the Ld. District Courts of Ghaziabad (which includes Indirapuram, Vasundhara, and Vaishali) and in Gautam Buddha Nagar (which includes Noida, Greater Noida, and Greater Noida West), as well as before the Hon'ble High Courts and the Hon'ble Supreme Court of India.",
 			image: commercialLawImage,
 			services: ["Recovery Cases", "Cheque Bounce", "Arbitration", "Commercial Disputes", "Strategic Solutions"]
 		},
 		{
-			id: 7,
+			id: 6,
 			title: "CONSUMER PROTECTION LAW",
 			description: "At Judicioworks Advocates and Associates, our consumer protection practice is focused on safeguarding the rights of individuals and ensuring fairness in the marketplace. We assist clients with disputes involving defective products, deficient services, and unfair trade practices. Our approach includes providing clear legal guidance, pursuing appropriate remedies, and representing clients before consumer forums and courts where required. By addressing concerns such as faulty goods, misleading advertisements, and service deficiencies, we work to secure just outcomes for consumers. We regularly represent clients before the Ld. District Courts of Ghaziabad (which includes Indirapuram, Vasundhara, and Vaishali) and in Gautam Buddha Nagar (which includes Noida, Greater Noida, and Greater Noida West), as well as before the Hon'ble High Courts and the Hon'ble Supreme Court of India.",
 			image: consumerLawImage,
 			services: ["Consumer Rights", "Product Defects", "Unfair Trade Practices", "Deficient Services", "Legal Advocacy"]
+		},
+		{
+			id: 7,
+			title: "CLAIM PETITIONS",
+			description: "At Judicioworks Advocates and Associates, we handle a wide spectrum of claim petitions, including railway accident claims and motor accident claims. Our work in this area focuses on ensuring that individuals and families receive just and fair compensation for the losses they have suffered. From gathering relevant evidence to addressing insurance-related concerns and, where necessary, representing clients before the courts, we provide structured legal support throughout the process. We regularly represent clients before the Ld. District Courts of Ghaziabad (which includes Indirapuram, Vasundhara, and Vaishali) and in Gautam Buddha Nagar (which includes Noida, Greater Noida, and Greater Noida West), as well as before the Hon'ble High Courts and the Hon'ble Supreme Court of India.",
+			image: complianceImage,
+			services: ["Railway Claims", "Motor Accident Claims", "Insurance Negotiation", "Evidence Gathering", "Court Representation"]
 		},
 		{
 			id: 8,

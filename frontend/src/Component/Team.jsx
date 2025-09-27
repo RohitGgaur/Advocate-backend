@@ -49,7 +49,7 @@ function Team() {
 	]
 
 	return (
-		<div style={{ backgroundColor: '#8b8b8b', minHeight: '100vh' }}>
+		<div style={{ backgroundColor: '#F5F6F8', minHeight: '100vh' }}>
 			<section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
 			<div className="text-center mb-8 md:mb-16">
 				<h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6 relative">

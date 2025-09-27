@@ -1,4 +1,4 @@
-import heroImg from '../assets/Adv photos/985b2dea-1873-4360-8eed-117691ecb0c4.jpg'
+import heroImg from '../assets/mainimage.png'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Footer from './Footer'
@@ -36,23 +36,23 @@ function Home() {
 	const practiceAreas = [
 		{
 			id: 1,
+			title: "FAMILY LAW",
+			description: "At Judicioworks Advocates and Associates, we recognise the sensitive nature of family and matrimonial law matters and approach each case with both compassion and strategy. Our practice covers a wide range of family-related issues, including divorce, child custody, alimony, adoption, and matters arising from domestic concerns. We place emphasis on the well-being and best interests of our clients and their families, offering thoughtful legal advice, effective negotiation, and representation before the courts when required. We regularly assist clients before the Ld. District Courts of Ghaziabad (which includes Indirapuram, Vasundhara, and Vaishali) and in Gautam Buddha Nagar (which includes Noida, Greater Noida, and Greater Noida West), as well as before the Hon'ble High Courts and the Hon'ble Supreme Court of India.",
+			image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=300&fit=crop",
+			readMore: "Read More"
+		},
+		{
+			id: 2,
 			title: "CRIMINAL LAW",
 			description: "Criminal law deals with offences, their prosecution, and the legal consequences that follow. At Judicioworks Advocates and Associates, our criminal law practice extends before the courts of Delhi, Ghaziabad, and Gautam Buddha Nagar. Matters arising from Indirapuram, Vaishali, and Vasundhara fall within the jurisdiction of the Ghaziabad courts, while cases from Noida, Greater Noida, and Greater Noida West are taken up before the courts of Gautam Buddha Nagar. Our advocates handle a broad spectrum of criminal cases, including serious charges such as rape, dowry death, and dowry harassment, as well as matters like traffic challans, narcotics-related offences, assault, theft, white-collar crimes, and juvenile cases. With considerable experience in criminal defence and a deep understanding of substantive and procedural law, we are committed to protecting the rights of individuals accused and ensuring due process at every stage of the proceedings.",
 			image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=300&fit=crop",
 			readMore: "Read More"
 		},
 		{
-			id: 2,
+			id: 3,
 			title: "CIVIL LAW",
 			description: "At Judicioworks Advocates and Associates, our practice in civil law covers a wide spectrum of disputes and legal concerns affecting both individuals and businesses. Civil law matters may include contracts, property disputes, family law, personal injury claims, among others. Our team is dedicated to offering informed guidance and effective representation, ensuring that each matter is approached with due care and attention to its unique circumstances. From resolving contractual issues to addressing family law concerns or pursuing rightful claims, we assist clients before the Ld. District Courts of Ghaziabad (which includes Indirapuram, Vasundhara, and Vaishali) and in Gautam Buddha Nagar (which includes Noida, Greater Noida, and Greater Noida West), as well as before the Hon'ble High Courts and the Hon'ble Supreme Court of India.",
 			image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
-			readMore: "Read More"
-		},
-		{
-			id: 3,
-			title: "FAMILY LAW",
-			description: "At Judicioworks Advocates and Associates, we recognise the sensitive nature of family and matrimonial law matters and approach each case with both compassion and strategy. Our practice covers a wide range of family-related issues, including divorce, child custody, alimony, adoption, and matters arising from domestic concerns. We place emphasis on the well-being and best interests of our clients and their families, offering thoughtful legal advice, effective negotiation, and representation before the courts when required. We regularly assist clients before the Ld. District Courts of Ghaziabad (which includes Indirapuram, Vasundhara, and Vaishali) and in Gautam Buddha Nagar (which includes Noida, Greater Noida, and Greater Noida West), as well as before the Hon'ble High Courts and the Hon'ble Supreme Court of India.",
-			image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=300&fit=crop",
 			readMore: "Read More"
 		},
 		{
@@ -73,7 +73,7 @@ function Home() {
 			id: 6,
 			title: "CONSUMER PROTECTION LAW",
 			description: "At Judicioworks Advocates and Associates, our consumer protection practice is focused on safeguarding the rights of individuals and ensuring fairness in the marketplace. We assist clients with disputes involving defective products, deficient services, and unfair trade practices. Our approach includes providing clear legal guidance, pursuing appropriate remedies, and representing clients before consumer forums and courts where required. By addressing concerns such as faulty goods, misleading advertisements, and service deficiencies, we work to secure just outcomes for consumers. We regularly represent clients before the Ld. District Courts of Ghaziabad (which includes Indirapuram, Vasundhara, and Vaishali) and in Gautam Buddha Nagar (which includes Noida, Greater Noida, and Greater Noida West), as well as before the Hon'ble High Courts and the Hon'ble Supreme Court of India.",
-			image: "https://images.unsplash.com/photo-1554224154-26032cdc0c0f?w=400&h=300&fit=crop",
+			image: "/src/assets/consumerlaw.jpg",
 			readMore: "Read More"
 		},
 		{
@@ -87,7 +87,7 @@ function Home() {
 			id: 8,
 			title: "LABOUR AND EMPLOYMENT LAW",
 			description: "At Judicioworks Advocates and Associates, our labour and employment law practice is designed to address the concerns of both employers and employees in an evolving workplace environment. We provide guidance on a broad range of matters, including compliance with labour regulations, employment contracts, workplace disputes, wrongful termination, discrimination, and claims relating to wages or benefits. Our approach is to offer practical solutions that safeguard rights and promote fair practices, while ensuring that each matter is handled with due care and attention. We regularly represent clients before the Ld. District Courts of Ghaziabad (which includes Indirapuram, Vasundhara, and Vaishali) and in Gautam Buddha Nagar (which includes Noida, Greater Noida, and Greater Noida West), as well as before the Hon'ble High Courts and the Hon'ble Supreme Court of India.",
-			image: "https://images.unsplash.com/photo-1521791136064-7986c745021b?w=400&h=300&fit=crop",
+			image: "/src/assets/labourlaw.jpeg",
 			readMore: "Read More"
 		},
 		{
@@ -258,113 +258,66 @@ function Home() {
 				<div className="absolute top-0 left-2/3 w-px h-full bg-gradient-to-b from-transparent via-cyan-300/30 to-transparent animate-moving-light-ray delay-2000"></div>
 			</div>
 			
-			<section className="relative z-10 min-h-screen flex items-start sm:items-center pt-0 sm:pt-0">
-				<div className="w-full grid grid-cols-1 lg:grid-cols-2 lg:min-h-screen lg:gap-0">
-					{/* Left side - Content */}
-					<div className="flex flex-col justify-start sm:justify-center px-2 sm:px-6 lg:px-8 py-0 sm:py-12 lg:py-20 order-2 lg:order-1 relative">
-						{/* Blurry boundary overlay */}
-						<div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white/80 to-transparent backdrop-blur-sm lg:block hidden"></div>
-						
-						{/* Animated background elements for content */}
-						<div className="absolute inset-0 opacity-10">
-							<div className="absolute top-1/4 left-1/4 w-16 h-16 bg-indigo-300/20 rounded-full animate-hero-float"></div>
-							<div className="absolute bottom-1/3 right-1/4 w-12 h-12 bg-purple-300/20 rounded-full animate-hero-pulse"></div>
-							<div className="absolute top-1/2 left-1/6 w-8 h-8 bg-cyan-300/30 rounded-full animate-hero-twinkle"></div>
-						</div>
-						
-							<div className="space-y-0 sm:space-y-6 max-w-2xl relative z-10 mt-8 sm:mt-0">
-							<h1 className="hero-title text-lg sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-none -my-2 sm:my-0 mb-3 sm:mb-4">
-								<div>
-									<div className="heading-line">
-										<span className="block sm:hidden">Welcome to Judicioworks</span>
-										<span className="hidden sm:block">Welcome to</span>
-									</div>
-									<div className="heading-line">
-										<span className="block sm:hidden">Advocates and Associates</span>
-										<span className="hidden sm:block">Judicioworks</span>
-									</div>
-									<div className="hidden sm:block heading-line">Advocates and</div>
-									<div className="hidden sm:block">Associates</div>
-								</div>
-							</h1>
-							<p className="hero-subtitle text-gray-800 text-sm sm:text-lg md:text-xl lg:text-2xl leading-relaxed">
-								where <span className="highlight-text">legal excellence</span> meets <span className="highlight-text">client satisfaction</span>. Our firm is dedicated to providing comprehensive legal solutions tailored to meet the diverse needs of our clients in Delhi-NCR, with a focus on <span className="location-highlight">Ghaziabad</span>, <span className="location-highlight">Noida</span>, <span className="location-highlight">Greater Noida</span>, and <span className="location-highlight">Greater Noida West</span>.
-							</p>
-							<div className="flex flex-col sm:flex-row gap-2 md:gap-4 pt-4 sm:pt-6">
-								<a 
-									href="tel:7065767555" 
-									className="group inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 px-4 py-2 md:px-8 md:py-4 text-white font-semibold hover:from-indigo-700 hover:to-purple-700 hover:shadow-lg hover:shadow-indigo-500/25 transition-all duration-300 transform hover:scale-105 text-xs sm:text-base md:text-lg relative overflow-hidden"
-								>
-									<span className="relative z-10 flex items-center">
-										<svg className="w-3 h-3 md:w-5 md:h-5 mr-1 md:mr-3 group-hover:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-										</svg>
-										<span className="hidden sm:inline">Book an Appointment</span>
-										<span className="sm:hidden">Book Now</span>
-									</span>
-									<div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-								</a>
-								<a 
-									href="/team" 
-									className="group inline-flex items-center justify-center rounded-lg border-2 border-indigo-200 px-4 py-2 md:px-8 md:py-4 text-indigo-700 font-semibold hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 hover:border-indigo-300 hover:shadow-md transition-all duration-300 transform hover:scale-105 text-xs sm:text-base md:text-lg relative overflow-hidden"
-								>
-									<span className="relative z-10 flex items-center">
-										<svg className="w-3 h-3 md:w-5 md:h-5 mr-1 md:mr-3 group-hover:animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-										</svg>
-										<span className="hidden sm:inline">Our Team</span>
-										<span className="sm:hidden">Team</span>
-									</span>
-									<div className="absolute inset-0 bg-gradient-to-r from-indigo-100/50 to-purple-100/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-								</a>
+			{/* Hero Section - Full width with team image background */}
+			<section className="relative z-10 min-h-[70vh] sm:min-h-screen flex items-center justify-center">
+				{/* Background Image with Dark Overlay */}
+				<div className="absolute inset-0">
+					<img
+						src={heroImg}
+						alt="Legal Team"
+						className="w-full h-full object-cover"
+					/>
+					<div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
+				</div>
+				
+				{/* Content Overlay */}
+				<div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+					<h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif text-white leading-tight mb-8">
+						<div>
+							<div className="heading-line text-sm sm:text-base md:text-lg font-sans font-normal mb-2">
+								Welcome to Judicioworks
+							</div>
+							<div className="heading-line font-bold">
+								Advocates and Associates
 							</div>
 						</div>
+					</h1>
+					<div className="mb-8">
+						<p className="text-sm sm:text-base md:text-lg text-white leading-relaxed max-w-4xl mx-auto font-sans font-normal">
+							where legal excellence meets client satisfaction. Our firm is dedicated to providing comprehensive legal solutions tailored to meet the diverse needs of our clients in Delhi-NCR, with a focus on Ghaziabad, Noida, Greater Noida, and Greater Noida West
+						</p>
 					</div>
-					
-					{/* Right side - Image (occupies right half completely without padding) */}
-					<div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-screen order-1 lg:order-2 group">
-						{/* Blurry boundary overlay */}
-						<div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-white/80 to-transparent backdrop-blur-sm lg:block hidden"></div>
-						
-						{/* Animated overlay elements */}
-						<div className="absolute inset-0 opacity-20">
-							<div className="absolute top-1/4 right-1/4 w-16 h-16 bg-indigo-400/30 rounded-full animate-hero-float"></div>
-							<div className="absolute bottom-1/3 left-1/4 w-12 h-12 bg-purple-400/30 rounded-full animate-hero-pulse"></div>
-							<div className="absolute top-1/2 right-1/6 w-8 h-8 bg-cyan-400/40 rounded-full animate-hero-twinkle"></div>
-						</div>
-						
-						<img
-							src={heroImg}
-							alt="Law and Justice"
-							className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-						/>
-						<div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/20 group-hover:from-transparent group-hover:via-transparent group-hover:to-black/30 transition-all duration-500"></div>
-						
-						
-						{/* Animated floating badge */}
-						<div className="absolute top-2 right-2 sm:top-4 sm:right-4 md:top-6 md:right-6 bg-white/95 backdrop-blur-sm px-2 py-1 md:px-3 md:py-2 rounded-full text-brand font-semibold text-xs shadow-lg animate-hero-float group-hover:animate-bounce">
-							<div className="flex items-center space-x-1">
-								<svg className="w-2 h-2 md:w-3 md:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+					<div className="flex justify-center">
+						<a 
+							href="/about" 
+							className="group inline-flex items-center justify-center rounded-lg bg-amber-600 hover:bg-amber-700 px-6 py-3 md:px-8 md:py-4 text-white font-semibold transition-all duration-300 transform hover:scale-105 text-sm sm:text-base md:text-lg relative overflow-hidden shadow-lg"
+						>
+							<span className="relative z-10 flex items-center">
+								<span>Explore Our Services</span>
+								<svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
 								</svg>
-								<span className="hidden sm:inline">Legal Excellence</span>
-								<span className="sm:hidden">Legal</span>
-							</div>
-						</div>
-						
-						{/* Interactive hover effect */}
-						<div className="absolute inset-0 bg-gradient-to-r from-indigo-500/0 via-purple-500/0 to-cyan-500/0 group-hover:from-indigo-500/10 group-hover:via-purple-500/10 group-hover:to-cyan-500/10 transition-all duration-500"></div>
+							</span>
+						</a>
 					</div>
+				</div>
+				
+				{/* Carousel Indicators */}
+				<div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+					<div className="w-3 h-3 bg-white rounded-full"></div>
+					<div className="w-3 h-3 bg-white/50 rounded-full"></div>
+					<div className="w-3 h-3 bg-white/50 rounded-full"></div>
+					<div className="w-3 h-3 bg-white/50 rounded-full"></div>
 				</div>
 			</section>
 
 			{/* Practice Areas Section */}
-			<section className="py-4 md:py-16 relative">
+			<section className="py-1 md:py-16 relative">
 				{/* Gradient Background for Practice Areas */}
 				<div className="absolute inset-0 bg-gradient-to-b from-gray-200 via-gray-300 to-gray-400"></div>
 				<div className="absolute inset-0 bg-gradient-to-r from-blue-100/20 via-transparent to-purple-100/20"></div>
 				<div className="relative z-10 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-					<h2 className="text-lg md:text-4xl font-bold text-center text-gray-800 mb-4 md:mb-12">PRACTICE AREAS</h2>
+					<h2 className="text-lg md:text-4xl font-bold text-center text-gray-800 mb-2 md:mb-12">PRACTICE AREAS</h2>
 					
 					<div className="relative">
 						{/* Navigation Buttons */}
@@ -396,28 +349,40 @@ function Home() {
 								{Array.from({ length: Math.ceil(practiceAreas.length / 3) }, (_, slideIndex) => (
 									<div key={slideIndex} className="hidden md:flex gap-6 min-w-full">
 										{practiceAreas.slice(slideIndex * 3, slideIndex * 3 + 3).map((area) => (
-											<div key={area.id} className="flex-1 bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col">
-												<div className="relative">
+											<div key={area.id} className="flex-1 bg-white rounded-lg shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col">
+												{/* Image Section - Larger */}
+												<div className="relative h-48">
 													<img 
 														src={area.image} 
 														alt={area.title}
-														className="w-full h-40 object-cover"
+														className="w-full h-full object-cover"
 													/>
-													<div className="absolute top-4 left-4 bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-medium">
-														{area.title.split(' ').slice(0, 2).join(' ')}
-													</div>
 												</div>
+												{/* Content Section */}
 												<div className="p-4 flex flex-col flex-grow">
-													<h3 className="text-lg font-semibold text-gray-800 mb-3">{area.title}</h3>
-													<p className="text-gray-600 mb-4 leading-relaxed text-sm line-clamp-3 flex-grow">
-														{area.description.substring(0, 150)}...
+													{/* Icon and Title */}
+													<div className="flex items-start mb-3">
+														<div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+															<svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+																<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+															</svg>
+														</div>
+														<h3 className="text-lg font-bold text-gray-800 leading-tight">{area.title}</h3>
+													</div>
+													{/* Description */}
+													<p className="text-gray-600 mb-4 leading-relaxed text-sm flex-grow">
+														{area.description.substring(0, 120)}...
 													</p>
+													{/* View Detail Link */}
 													<div className="mt-auto">
 														<Link 
 															to={`/practice-area/${area.id}`}
-															className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 text-sm hover:scale-105 shadow-lg hover:shadow-xl w-full text-center"
+															className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm transition-colors duration-300"
 														>
-															{area.readMore}
+															<span>View Detail</span>
+															<svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+																<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+															</svg>
 														</Link>
 													</div>
 												</div>
@@ -430,27 +395,39 @@ function Home() {
 								{practiceAreas.map((area, index) => (
 									<div key={`mobile-${area.id}`} className="md:hidden flex justify-center min-w-full px-2">
 										<div className="w-full max-w-sm bg-white rounded-lg shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col">
-											<div className="relative flex-shrink-0">
+											{/* Image Section - Larger */}
+											<div className="relative h-40">
 												<img 
 													src={area.image} 
 													alt={area.title}
-													className="w-full h-32 object-cover"
+													className="w-full h-full object-cover"
 												/>
-												<div className="absolute top-1 left-1 bg-gray-800 text-white px-2 py-1 rounded-full text-xs font-medium">
-													{area.title.split(' ').slice(0, 2).join(' ')}
-												</div>
 											</div>
+											{/* Content Section */}
 											<div className="p-4 flex flex-col flex-grow">
-												<h3 className="text-base font-semibold text-gray-800 mb-3 flex-shrink-0">{area.title}</h3>
-												<p className="text-gray-600 mb-4 leading-relaxed text-sm line-clamp-2 flex-grow">
+												{/* Icon and Title */}
+												<div className="flex items-start mb-3">
+													<div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
+														<svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+															<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+														</svg>
+													</div>
+													<h3 className="text-base font-bold text-gray-800 leading-tight">{area.title}</h3>
+												</div>
+												{/* Description */}
+												<p className="text-gray-600 mb-4 leading-relaxed text-xs flex-grow">
 													{area.description.substring(0, 80)}...
 												</p>
+												{/* View Detail Link */}
 												<div className="flex-shrink-0 mt-auto">
 													<Link 
 														to={`/practice-area/${area.id}`}
-														className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-3 rounded-lg font-semibold transition-all duration-300 text-sm hover:scale-105 shadow-lg hover:shadow-xl w-full text-center"
+														className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-xs transition-colors duration-300"
 													>
-														{area.readMore}
+														<span>View Detail</span>
+														<svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+															<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+														</svg>
 													</Link>
 												</div>
 											</div>
@@ -517,24 +494,24 @@ function Home() {
 						<div className="w-24 h-1 bg-gray-600 mx-auto rounded-full animate-scale-in"></div>
 					</div>
 
-					<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+					<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-stretch">
 						{/* Founder Information */}
-						<div className="space-y-4 lg:space-y-8 animate-fade-in-left group">
-							<div className="bg-white/60 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-4 lg:p-8 border border-gray-300/50 shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-500 hover:bg-white/70 relative overflow-hidden">
+						<div className="animate-fade-in-left group h-64 lg:h-[500px]">
+							<div className="bg-white/60 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-4 lg:p-8 border border-gray-300/50 shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-500 hover:bg-white/70 relative overflow-hidden h-full flex flex-col">
 								{/* Animated background gradient */}
 								<div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-								<div className="relative z-10">
+								<div className="relative z-10 flex flex-col h-full">
 									<h3 className="text-lg lg:text-3xl font-bold text-gray-800 mb-2 lg:mb-4 group-hover:text-gray-900 transition-colors duration-300">
 										Rishabh Malhotra (Advocate)
 									</h3>
-									<p className="text-gray-700 text-sm lg:text-lg leading-relaxed mb-4 lg:mb-6 group-hover:text-gray-800 transition-colors duration-300 text-justify">
+									<p className="text-gray-700 text-sm lg:text-lg leading-relaxed mb-4 lg:mb-6 group-hover:text-gray-800 transition-colors duration-300 text-justify flex-grow">
 										Founder and Principal Advocate at Judicioworks Advocates and Associates. 
 										With 5 years of experience in this legal field, Rishabh Malhotra (Advocate) 
 										has established a reputation for excellence, integrity, and dedication 
 										to client success. Specialised in family law, criminal law, civil law, 
 										consumer protection law, real estate law and labour law.
 									</p>
-									<div className="space-y-2 lg:space-y-4">
+									<div className="space-y-2 lg:space-y-4 mt-auto">
 										<div className="flex items-center space-x-2 lg:space-x-3 group-hover:translate-x-2 transition-transform duration-300">
 											<div className="w-2 h-2 lg:w-3 lg:h-3 bg-gray-600 rounded-full animate-pulse group-hover:bg-gray-800 transition-colors duration-300"></div>
 											<span className="text-gray-700 text-xs lg:text-base group-hover:text-gray-800 transition-colors duration-300">5 Years of Legal Experience</span>
@@ -557,8 +534,8 @@ function Home() {
 						</div>
 
 						{/* Photo Slider */}
-						<div className="relative animate-fade-in-right group">
-							<div className="relative h-64 lg:h-[500px] rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-105">
+						<div className="relative animate-fade-in-right group h-64 lg:h-[500px]">
+							<div className="relative h-full rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-105">
 								{/* Main Photo Display */}
 								<div className="relative h-full overflow-hidden">
 									<img

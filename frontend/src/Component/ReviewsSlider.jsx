@@ -73,6 +73,60 @@ const ReviewsSlider = () => {
             recommendation: 'yes',
             createdAt: new Date(Date.now() - 28 * 24 * 60 * 60 * 1000).toISOString(), // 4 weeks ago
             reviewCount: 1
+        },
+        {
+            _id: 'review7',
+            name: 'ELITE VULTURE GAMING',
+            overall_rating: 5,
+            feedback_text: 'Judicioworks Advocates and Associates is the go-to place for anyone seeking a reliable divorce lawyer in Noida. Their team handled my case with sensitivity and professionalism, ensuring a smooth process. Highly recommend Advocate Rishabh Malhotra',
+            recommendation: 'yes',
+            createdAt: new Date(Date.now() - 240 * 24 * 60 * 60 * 1000).toISOString(), // 8 months ago
+            reviewCount: 2
+        },
+        {
+            _id: 'review8',
+            name: 'Sufia Shahzad',
+            overall_rating: 5,
+            feedback_text: 'I had an excellent experience with this criminal lawyer. They explained everything clearly, guided me at every step, and fought my case with full dedication. Truly dependable and trustworthy.',
+            recommendation: 'yes',
+            createdAt: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString(), // 1 month ago
+            reviewCount: 3
+        },
+        {
+            _id: 'review9',
+            name: 'Aman Kumar',
+            overall_rating: 5,
+            feedback_text: 'I had a tough divorce case that stretched for months, but Judicioworks Advocates and Associates handled everything with exceptional professionalism. Their team, led by Advocate Rishabh Malhotra, was thorough, empathetic, and always available to address my concerns.',
+            recommendation: 'yes',
+            createdAt: new Date(Date.now() - 240 * 24 * 60 * 60 * 1000).toISOString(), // 8 months ago
+            reviewCount: 2
+        },
+        {
+            _id: 'review10',
+            name: 'Khushi Gupta',
+            overall_rating: 5,
+            feedback_text: 'Judicioworks Advocates And Associates provided me with outstanding service during a very challenging time in my life. The divorce lawyer in Noida was thorough and spoke in clear terms that made the entire process understandable. Their expertise and compassion made all the difference.',
+            recommendation: 'yes',
+            createdAt: new Date(Date.now() - 365 * 24 * 60 * 60 * 1000).toISOString(), // 1 year ago
+            reviewCount: 3
+        },
+        {
+            _id: 'review11',
+            name: 'CHUNMUN KUMAR',
+            overall_rating: 5,
+            feedback_text: 'Judicioworks Advocates handled my cheque bounce case and recovery suit with great skill. Advocate Rishabh Malhotra personally ensured the matter was resolved efficiently. They\'re one of the few law firms in Noida that prioritize their clients\' needs so effectively.',
+            recommendation: 'yes',
+            createdAt: new Date(Date.now() - 240 * 24 * 60 * 60 * 1000).toISOString(), // 8 months ago
+            reviewCount: 2
+        },
+        {
+            _id: 'review12',
+            name: 'Satyendra Jha',
+            overall_rating: 5,
+            feedback_text: 'If you need a criminal lawyer in Noida, Judicioworks is where to go. They are incredibly professional and knowledgeable. Their approach to divorce cases is equally impressive. Trustworthy advocates who deliver results',
+            recommendation: 'yes',
+            createdAt: new Date(Date.now() - 240 * 24 * 60 * 60 * 1000).toISOString(), // 8 months ago
+            reviewCount: 3
         }
     ];
 
