@@ -15,7 +15,7 @@
             resultDiv.innerHTML = 'Testing contact...';
             
             try {
-                const response = await fetch('http://72.60.103.43:5173/api/contact/submit', {
+                const response = await fetch('https://72.60.103.43:5173/api/contact/submit', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -39,7 +39,7 @@
             resultDiv.innerHTML = 'Testing review...';
             
             try {
-                const response = await fetch('http://72.60.103.43:5173/api/reviews/submit', {
+                const response = await fetch('https://72.60.103.43:5173/api/reviews/submit', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({

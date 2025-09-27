@@ -25,7 +25,7 @@ cd frontend
 npm install
 npm run dev
 ```
-Frontend will run on: http://72.60.103.43:5173
+Frontend will run on: https://72.60.103.43:5173
 
 ### Backend Setup
 ```bash
@@ -77,5 +77,5 @@ Backend will run on: http://localhost:5000
 
 1. Start backend: `cd backend && npm start`
 2. Start frontend: `cd frontend && npm run dev`
-3. Access frontend: http://72.60.103.43:5173
-4. Access backend: http://72.60.103.43:5000
+3. Access frontend: https://72.60.103.43:5173
+4. Access backend: https://72.60.103.43:5000

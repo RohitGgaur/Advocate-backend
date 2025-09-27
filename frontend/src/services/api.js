@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'http://72.60.103.43:5000/api'; // Direct production API URL
 
 class ApiService {
   constructor() {
@@ -33,12 +33,17 @@ class ApiService {
 
   // Make HTTP request
   async request(endpoint, options = {}) {
-    // Add cache-busting parameter for GET requests
+    console.log('🔍 DEBUG - request method called with endpoint:', endpoint);
+    console.log('🔍 DEBUG - options:', options);
+    
+    // Use direct production API URL
     let url = `${this.baseURL}${endpoint}`;
     if (options.method === 'GET' || !options.method) {
       const separator = endpoint.includes('?') ? '&' : '?';
       url += `${separator}_t=${Date.now()}&_r=${Math.random()}`;
     }
+    
+    console.log('🔍 DEBUG - final URL:', url);
     
     const token = this.getToken();
 
@@ -54,7 +59,7 @@ class ApiService {
       ...options,
     };
 
-    console.log('🚀 API Request:', { 
+    console.log('🚀 API Request (direct to production):', { 
       url, 
       method: options.method || 'GET',
       headers: config.headers,
@@ -87,7 +92,7 @@ class ApiService {
     } catch (error) {
       console.error('❌ API Error:', error);
       if (error.message.includes('Failed to fetch')) {
-        console.error('❌ Backend server might not be running on 72.60.103.43:5000');
+        console.error('❌ Backend server might not be accessible at 72.60.103.43:5000');
         throw new Error('Backend server is not running. Please start the backend server.');
       }
       throw error;
@@ -113,7 +118,9 @@ class ApiService {
     console.log('API: Getting profile from backend...');
     
     const response = await this.request('/auth/me');
-    console.log('API: Profile response received:', response);
+    console.log('🔍 DEBUG - getProfile response:', response);
+    console.log('🔍 DEBUG - response.success:', response.success);
+    console.log('🔍 DEBUG - response.admin:', response.admin);
     
     // Store the response in localStorage for future use
     if (response.success && response.admin) {
@@ -150,10 +157,20 @@ class ApiService {
     const queryString = new URLSearchParams(params).toString();
     
     try {
+      console.log('🔍 DEBUG - getBlogs called with params:', params);
+      console.log('🔍 DEBUG - queryString:', queryString);
+      console.log('🔍 DEBUG - endpoint:', `/blogs${queryString ? `?${queryString}` : ''}`);
+      
       const result = await this.request(`/blogs${queryString ? `?${queryString}` : ''}`);
+      console.log('🔍 DEBUG - getBlogs result:', result);
+      console.log('🔍 DEBUG - result.success:', result.success);
+      console.log('🔍 DEBUG - result.blogs:', result.blogs);
+      console.log('🔍 DEBUG - result.blogs length:', result.blogs?.length);
       return result;
     } catch (error) {
-      console.error('API Error:', error);
+      console.error('❌ API Error in getBlogs:', error);
+      console.error('❌ Error message:', error.message);
+      console.error('❌ Error stack:', error.stack);
       throw error;
     }
   }

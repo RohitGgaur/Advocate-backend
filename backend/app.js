@@ -20,9 +20,16 @@ app.use(cors({
     'http://127.0.0.1:5173',
     'http://localhost:3000',
     'http://127.0.0.1:3000',
+    'https://localhost:5173',
+    'https://127.0.0.1:5173',
+    'https://localhost:3000',
+    'https://127.0.0.1:3000',
     'http://72.60.103.43:5173',
     'http://72.60.103.43:3000',
-    'http://72.60.103.43:5000'
+    'http://72.60.103.43:5000',
+    'https://72.60.103.43:5173',
+    'https://72.60.103.43:3000',
+    'https://72.60.103.43:5000'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -36,9 +43,16 @@ app.options('*', (req, res) => {
     'http://127.0.0.1:5173',
     'http://localhost:3000',
     'http://127.0.0.1:3000',
+    'https://localhost:5173',
+    'https://127.0.0.1:5173',
+    'https://localhost:3000',
+    'https://127.0.0.1:3000',
     'http://72.60.103.43:5173',
     'http://72.60.103.43:3000',
-    'http://72.60.103.43:5000'
+    'http://72.60.103.43:5000',
+    'https://72.60.103.43:5173',
+    'https://72.60.103.43:3000',
+    'https://72.60.103.43:5000'
   ];
   
   const origin = req.headers.origin;

@@ -2,12 +2,12 @@
 
 ## Base URL
 ```
-http://72.60.103.43:5173/api
+https://72.60.103.43:5173/api
 ```
 
 ## 1. GET Reviews (Public) - For Home Page
 **Method:** GET  
-**URL:** `http://72.60.103.43:5173/api/reviews/public`  
+**URL:** `https://72.60.103.43:5173/api/reviews/public`  
 **Headers:** None required  
 **Body:** None  
 
@@ -18,12 +18,12 @@ http://72.60.103.43:5173/api
 
 **Example with parameters:**
 ```
-http://72.60.103.43:5173/api/reviews/public?limit=5&status=approved
+https://72.60.103.43:5173/api/reviews/public?limit=5&status=approved
 ```
 
 ## 2. GET All Reviews (Admin) - For Admin Panel
 **Method:** GET  
-**URL:** `http://72.60.103.43:5173/api/reviews/admin/all`  
+**URL:** `https://72.60.103.43:5173/api/reviews/admin/all`  
 **Headers:** 
 ```
 Authorization: Bearer YOUR_ADMIN_TOKEN
@@ -41,7 +41,7 @@ Content-Type: application/json
 
 ## 3. POST Review (Submit New Review)
 **Method:** POST  
-**URL:** `http://72.60.103.43:5173/api/reviews/submit`  
+**URL:** `https://72.60.103.43:5173/api/reviews/submit`  
 **Headers:** 
 ```
 Content-Type: application/json
@@ -64,13 +64,13 @@ Content-Type: application/json
 
 ## 4. GET Single Review
 **Method:** GET  
-**URL:** `http://72.60.103.43:5173/api/reviews/{review_id}`  
+**URL:** `https://72.60.103.43:5173/api/reviews/{review_id}`  
 **Headers:** None required  
 **Body:** None  
 
 ## 5. UPDATE Review Status (Admin)
 **Method:** PATCH  
-**URL:** `http://72.60.103.43:5173/api/reviews/{review_id}/status`  
+**URL:** `https://72.60.103.43:5173/api/reviews/{review_id}/status`  
 **Headers:** 
 ```
 Authorization: Bearer YOUR_ADMIN_TOKEN
@@ -85,7 +85,7 @@ Content-Type: application/json
 
 ## 6. UPDATE Review Featured Status (Admin)
 **Method:** PATCH  
-**URL:** `http://72.60.103.43:5173/api/reviews/{review_id}/featured`  
+**URL:** `https://72.60.103.43:5173/api/reviews/{review_id}/featured`  
 **Headers:** 
 ```
 Authorization: Bearer YOUR_ADMIN_TOKEN
@@ -100,7 +100,7 @@ Content-Type: application/json
 
 ## 7. DELETE Review (Admin)
 **Method:** DELETE  
-**URL:** `http://72.60.103.43:5173/api/reviews/{review_id}`  
+**URL:** `https://72.60.103.43:5173/api/reviews/{review_id}`  
 **Headers:** 
 ```
 Authorization: Bearer YOUR_ADMIN_TOKEN
@@ -110,7 +110,7 @@ Content-Type: application/json
 
 ## 8. GET Review Statistics (Admin)
 **Method:** GET  
-**URL:** `http://72.60.103.43:5173/api/reviews/stats/overview`  
+**URL:** `https://72.60.103.43:5173/api/reviews/stats/overview`  
 **Headers:** 
 ```
 Authorization: Bearer YOUR_ADMIN_TOKEN
@@ -172,12 +172,12 @@ Content-Type: application/json
 2. **Test GET Reviews:**
    - Open Postman
    - Create new GET request
-   - URL: `http://72.60.103.43:5173/api/reviews/public`
+   - URL: `https://72.60.103.43:5173/api/reviews/public`
    - Send request
 
 3. **Test POST Review:**
    - Create new POST request
-   - URL: `http://72.60.103.43:5173/api/reviews/submit`
+   - URL: `https://72.60.103.43:5173/api/reviews/submit`
    - Headers: `Content-Type: application/json`
    - Body: Use the JSON example above
    - Send request

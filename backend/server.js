@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const https = require('https');
+const fs = require('fs');
 
 const app = express();
 
@@ -49,7 +51,7 @@ mongoose.connect('mongodb://localhost:27017/judicioworks', {
 
 // Middleware
 app.use(cors({
-  origin: ['http://72.60.103.43:5173', 'http://72.60.103.43:3000'],
+  origin: ['http://72.60.103.43:5173', 'http://72.60.103.43:3000', 'https://72.60.103.43:5173', 'https://72.60.103.43:3000'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
@@ -137,6 +139,7 @@ app.post('/api/test-large', (req, res) => {
 
 const PORT = 5000;
 
+// Start HTTP server on port 5000
 app.listen(PORT, () => {
   console.log(`🚀 Backend Server running on http://localhost:${PORT}`);
   console.log(`📊 Health check: http://localhost:${PORT}/api/health`);
