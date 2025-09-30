@@ -29,10 +29,10 @@ import photo21 from '../assets/Adv photos/e34dd712-b8ed-4a0a-b4c3-5008ade41fd7.j
 import photo22 from '../assets/Adv photos/ffec3bae-15ad-47cd-858a-5b6daac8d04f.jpg'
 
 // Import practice area images
-import familyLawImg from '../assets/Adv1.jpg'
-import criminalLawImg from '../assets/Adv2.jpg'
-import civilLawImg from '../assets/Adv1.jpg'
-import realEstateLawImg from '../assets/Adv2.jpg'
+import familyLawImg from '../assets/Family.png'
+import criminalLawImg from '../assets/criminal law.png'
+import civilLawImg from '../assets/civil.png'
+import realEstateLawImg from '../assets/Realestate.png'
 import commercialLitigationImg from '../assets/Commercial litigation.png'
 import consumerProtectionImg from '../assets/Consumer protection.png'
 import claimPetitionsImg from '../assets/Claim.png'
@@ -201,14 +201,6 @@ function Home() {
 		setCurrentSlide((prev) => (prev - 1 + Math.ceil(practiceAreas.length / cardsPerSlide)) % Math.ceil(practiceAreas.length / cardsPerSlide))
 	}
 
-	// Photo slider navigation
-	const nextPhoto = () => {
-		setCurrentPhotoIndex((prev) => (prev + 1) % founderPhotos.length)
-	}
-
-	const prevPhoto = () => {
-		setCurrentPhotoIndex((prev) => (prev - 1 + founderPhotos.length) % founderPhotos.length)
-	}
 
 	return (
 		<>
@@ -603,59 +595,50 @@ function Home() {
 
 						{/* Photo Slider */}
 						<div className="relative animate-fade-in-right group min-h-[300px] lg:h-[500px]">
-							<div className="relative h-full rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-105 border-4 border-yellow-400/30">
-								{/* Main Photo Display */}
-								<div className="relative h-full overflow-hidden">
-									<img
-										src={founderPhotos[currentPhotoIndex]}
-										alt={`Founder Photo ${currentPhotoIndex + 1}`}
-										className="w-full h-full object-cover transition-all duration-700 ease-in-out transform scale-105 group-hover:scale-110 animate-fade-in"
-										key={currentPhotoIndex}
-									/>
-									{/* Overlay gradient */}
-									<div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent group-hover:from-black/20 transition-all duration-500"></div>
-									{/* Hover effect overlay */}
-									<div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-transparent to-yellow-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+							{/* Slider Container */}
+							<div className="relative h-full w-full rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-105 border-4 border-yellow-400/30">
+								{/* Main Slider Display */}
+								<div className="relative h-full w-full overflow-hidden">
+									<div className="flex transition-transform duration-700 ease-in-out h-full" style={{ transform: `translateX(-${currentPhotoIndex * 100}%)` }}>
+										{founderPhotos.map((photo, index) => (
+											<div key={index} className="w-full h-full flex-shrink-0 relative">
+												<img
+													src={photo}
+													alt={`Founder Photo ${index + 1}`}
+													className="w-full h-full object-cover object-center transition-all duration-700 ease-in-out"
+												/>
+												{/* Overlay gradient */}
+												<div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent group-hover:from-black/20 transition-all duration-500"></div>
+												{/* Hover effect overlay */}
+												<div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-transparent to-yellow-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+											</div>
+										))}
+									</div>
 								</div>
 
-								{/* Navigation Buttons - Hidden on mobile */}
+								{/* Navigation Arrows */}
 								<button
-									onClick={prevPhoto}
-									className="hidden md:block absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-yellow-400/80 backdrop-blur-sm text-white p-4 rounded-full shadow-xl hover:bg-yellow-500 hover:text-white transition-all duration-300 border-2 border-yellow-300 hover:border-yellow-400 hover:scale-110"
+									onClick={() => setCurrentPhotoIndex((prev) => (prev - 1 + founderPhotos.length) % founderPhotos.length)}
+									className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-yellow-400/80 backdrop-blur-sm text-white p-3 rounded-full shadow-xl hover:bg-yellow-500 hover:text-white transition-all duration-300 border-2 border-yellow-300 hover:border-yellow-400 hover:scale-110"
 								>
-									<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
 									</svg>
 								</button>
 								
 								<button
-									onClick={nextPhoto}
-									className="hidden md:block absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-yellow-400/80 backdrop-blur-sm text-white p-4 rounded-full shadow-xl hover:bg-yellow-500 hover:text-white transition-all duration-300 border-2 border-yellow-300 hover:border-yellow-400 hover:scale-110"
+									onClick={() => setCurrentPhotoIndex((prev) => (prev + 1) % founderPhotos.length)}
+									className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-yellow-400/80 backdrop-blur-sm text-white p-3 rounded-full shadow-xl hover:bg-yellow-500 hover:text-white transition-all duration-300 border-2 border-yellow-300 hover:border-yellow-400 hover:scale-110"
 								>
-									<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
 									</svg>
 								</button>
 
-								{/* Photo Counter - Hidden on mobile */}
-								<div className="hidden md:block absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium group-hover:bg-yellow-400/20 group-hover:text-yellow-200 transition-all duration-300">
+								{/* Photo Counter */}
+								<div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium group-hover:bg-yellow-400/20 group-hover:text-yellow-200 transition-all duration-300">
 									{currentPhotoIndex + 1} / {founderPhotos.length}
 								</div>
-							</div>
-
-							{/* Thumbnail Navigation */}
-							<div className="mt-6 flex justify-center space-x-3">
-								{founderPhotos.slice(0, 8).map((_, index) => (
-									<button
-										key={index}
-										onClick={() => setCurrentPhotoIndex(index)}
-										className={`w-4 h-4 rounded-full transition-all duration-300 hover:scale-125 border-2 ${
-											index === currentPhotoIndex 
-												? 'bg-yellow-400 border-yellow-500 shadow-lg scale-110 animate-pulse-glow' 
-												: 'bg-gray-400 border-gray-300 hover:bg-gray-300 hover:border-gray-200'
-										}`}
-									/>
-								))}
 							</div>
 						</div>
 					</div>

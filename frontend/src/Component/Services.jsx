@@ -35,7 +35,7 @@ function Services() {
 						
 						{/* Subtitle */}
 						<p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-8">
-							Comprehensive legal solutions tailored to meet the diverse needs of our clients across Delhi-NCR
+							(Comprehensive legal solutions tailored to meet the diverse needs of our clients across Delhi-NCR)
 						</p>
 						
 					{/* Action Buttons */}
@@ -52,13 +52,13 @@ function Services() {
 						</Link>
 						
 						<Link
-							to="/about"
+							to="/team"
 							className="group relative inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 border-2 border-white/30 hover:border-white/50 min-w-[220px]"
 						>
 							<svg className="w-5 h-5 mr-3 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
 							</svg>
-							<span>Learn About Us</span>
+							<span>Learn About Our Team</span>
 						</Link>
 					</div>
 					
@@ -156,7 +156,7 @@ function Services() {
 							Core Services
 						</h2>
 						<p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-							Comprehensive legal services covering all major practice areas
+							(Comprehensive legal services covering all major practice areas)
 						</p>
 					</div>
 					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
@@ -200,7 +200,7 @@ function Services() {
 							Practice Areas
 						</h2>
 						<p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-							Specialized legal expertise across diverse practice areas
+							(Specialized legal expertise across diverse practice areas)
 						</p>
 					</div>
 					<div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
@@ -283,6 +283,213 @@ function Services() {
 			</div>
 				</div>
 
+				{/* Legal Services for Residents */}
+				<div className="relative bg-gradient-to-br from-white to-green-50 rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl p-4 sm:p-6 lg:p-10 mb-8 sm:mb-16 border border-green-100">
+					<div className="absolute top-0 left-0 w-full h-1 sm:h-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-t-2xl sm:rounded-t-3xl"></div>
+					<div className="text-center mb-6 sm:mb-10">
+						<div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full mb-4 sm:mb-6">
+							<svg className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+							</svg>
+						</div>
+						<h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+							Legal Services for Residents
+						</h2>
+						<p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+							(Specialized legal services for residents of Noida, Greater Noida West and Ghaziabad)
+						</p>
+					</div>
+					<div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+						{[
+							{
+								title: "Family & Matrimonial Lawyers in Noida, Greater Noida & Ghaziabad",
+								description: "Advocates for marriage disputes, separation, annulment & related family law matters in Noida, Greater Noida West, Ghaziabad & Indirapuram."
+							},
+							{
+								title: "Divorce Lawyer in Noida Extension | Mutual & Contested Divorce",
+								description: "Experienced divorce advocates for mutual consent & contested divorce cases in Greater Noida West, Surajpur, Ghaziabad & Indirapuram societies."
+							},
+							{
+								title: "Child Custody & Maintenance Lawyers in Noida & Ghaziabad",
+								description: "Legal support for custody, visitation & maintenance matters in family disputes across Noida Extension, Greater Noida West & Ghaziabad."
+							},
+							{
+								title: "Marriage Registration & Will Lawyers in Noida & Ghaziabad",
+								description: "Assistance with marriage registration, legal heir certificate & will drafting in Tehsil Ghaziabad, Dadri, Noida, Indirapuram & Greater Noida West."
+							},
+							{
+								title: "Property Registration & Conveyancing Lawyers in Greater Noida",
+								description: "Sale deed, lease deed, transfer memorandum & property registration in Surajpur, Bisrakh, Noida Extension, Indirapuram & Ghaziabad."
+							},
+							{
+								title: "Criminal Lawyers in Ghaziabad & Noida | Bail, FIR & Trial",
+								description: "Defence in 498A, dowry, NDPS, domestic violence, defamation & bail matters in District Courts Ghaziabad & Gautam Buddha Nagar (Surajpur)."
+							},
+							{
+								title: "Labour Dispute & Employment Lawyers in Noida & Ghaziabad",
+								description: "Handling industrial disputes, unlawful termination & contract disputes for employees & management in Noida, Indirapuram & Greater Noida West."
+							},
+							{
+								title: "RERA & Consumer Dispute Lawyers in Greater Noida & Ghaziabad",
+								description: "Builder-buyer disputes, possession delay, IFMS recovery, AOA registration & election handled in Noida Extension & Indirapuram societies."
+							},
+							{
+								title: "Cheque Bounce & Recovery Lawyers in Noida & Greater Noida West",
+								description: "Commercial litigation for cheque bounce & recovery before commercial courts in Ghaziabad, Surajpur, Noida Extension & Indirapuram."
+							},
+							{
+								title: "Arbitration & Mediation Lawyers in Noida & Ghaziabad",
+								description: "Alternate dispute resolution through arbitration, mediation & conciliation in Noida, Greater Noida, Greater Noida West and Ghaziabad."
+							},
+							{
+								title: "Writ & SLP Lawyers in Noida, Ghaziabad & Greater Noida",
+								description: "Filing writ petitions, transfer petitions & special leave petitions before High Courts & Supreme Court. Serving Noida Extension, Greater Noida West, Greater Noida, Indirapuram, Vasundhara, Vaishali."
+							},
+							{
+								title: "Civil Lawyers in Noida & Ghaziabad | Property & Probate",
+								description: "Advocates for property disputes, will probate & civil litigation in Noida Extension, Greater Noida West, Indirapuram & District Courts."
+							}
+						].map((service, index) => (
+							<div key={index} className="group bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
+								<h3 className="text-sm sm:text-base lg:text-lg font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-green-600 transition-colors">
+									{service.title}
+								</h3>
+								<p className="text-xs sm:text-sm text-gray-600 leading-relaxed text-justify">
+									{service.description}
+								</p>
+							</div>
+						))}
+					</div>
+				</div>
+
+				{/* Jurisdiction Details */}
+				<div className="relative bg-gradient-to-br from-white to-amber-50 rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl p-4 sm:p-6 lg:p-10 mb-8 sm:mb-16 border border-amber-100">
+					<div className="absolute top-0 left-0 w-full h-1 sm:h-2 bg-gradient-to-r from-amber-500 to-orange-500 rounded-t-2xl sm:rounded-t-3xl"></div>
+					<div className="text-center mb-6 sm:mb-10">
+						<div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full mb-4 sm:mb-6">
+							<svg className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+							</svg>
+						</div>
+						<h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+							Jurisdiction Details
+						</h2>
+						<p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+							(Understanding our court jurisdictions and service areas)
+						</p>
+					</div>
+					<div className="bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 border border-amber-100">
+						<div className="space-y-4 sm:space-y-6">
+							<div>
+								<h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">District Court of Gautam Buddha Nagar (Surajpur)</h3>
+								<p className="text-sm sm:text-base text-gray-700 leading-relaxed text-justify mb-4">
+									Noida and Greater Noida West, also known as Noida Extension, are two of the most rapidly growing urban clusters of the National Capital Region (NCR). With over 160 notified sectors in Noida and several high-density residential sectors in Greater Noida West, lakhs of residents today call these areas home.
+								</p>
+								<p className="text-sm sm:text-base text-gray-700 leading-relaxed text-justify mb-4">
+									What many people are not always aware of is that all disputes, legal matters, and proceedings arising within these areas fall under the jurisdiction of the District Court Gautam Buddha Nagar, popularly referred to as the Surajpur District Court.
+								</p>
+							</div>
+							<div>
+								<h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">Noida Sectors Coverage</h4>
+								<p className="text-sm sm:text-base text-gray-700 leading-relaxed text-justify mb-4">
+									The city of Noida is planned with 163 designated sectors, numbered from 1 to 168, with a few missing numbers such as 13, 103, 109, 111, and 114. These sectors are divided into residential, institutional, industrial and commercial zones. Over the years, certain sectors have emerged as densely populated residential belts such as Sectors 12, 22, 27, 29, 34, 50, 51, 61, 62, 71, 72, 76, 77, 78, 79, 93, 93A, 137, 142, 143, and 150.
+								</p>
+							</div>
+							<div>
+								<h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">Greater Noida West Coverage</h4>
+								<p className="text-sm sm:text-base text-gray-700 leading-relaxed text-justify mb-4">
+									Greater Noida West has its own distinct set of notified sectors such as Sector 1, 2, 3, 4, 5, 6, 10, 12, 16B, 16C, 18, and 19, along with major institutional and commercial zones like Tech Zone IV and Knowledge Parks IV and V. This region is one of the fastest growing residential hubs in Gautam Buddha Nagar, with high-rise group housing societies and large township projects.
+								</p>
+							</div>
+							<div>
+								<h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">Ghaziabad District Court Jurisdiction</h4>
+								<p className="text-sm sm:text-base text-gray-700 leading-relaxed text-justify">
+									Ghaziabad, a key urban district adjoining Delhi and Noida, falls under the jurisdiction of the Ghaziabad District Court, with several prominent residential and commercial hubs such as Indirapuram, Vaishali, and Vasundhara forming some of the most densely populated and sought-after areas.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				{/* Area Specific Services */}
+				<div className="relative bg-gradient-to-br from-white to-indigo-50 rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl p-4 sm:p-6 lg:p-10 mb-8 sm:mb-16 border border-indigo-100">
+					<div className="absolute top-0 left-0 w-full h-1 sm:h-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-t-2xl sm:rounded-t-3xl"></div>
+					<div className="text-center mb-6 sm:mb-10">
+						<div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full mb-4 sm:mb-6">
+							<svg className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+							</svg>
+						</div>
+						<h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+							Area Specific Services
+						</h2>
+						<p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+							(Comprehensive legal services across all major residential and commercial areas)
+						</p>
+					</div>
+					<div className="space-y-6 sm:space-y-8">
+						{[
+							{
+								title: "Noida Sectors",
+								areas: ["Sector 18", "Sector 50", "Sector 51", "Sector 61", "Sector 62", "Sector 71", "Sector 72", "Sector 76", "Sector 77", "Sector 78", "Sector 79", "Sector 93", "Sector 93A", "Sector 137", "Sector 142", "Sector 143", "Sector 150"],
+								services: ["Criminal Law", "Divorce Law", "Property Law", "Labour Law", "Cheque Bounce", "Consumer Disputes", "Civil Law"]
+							},
+							{
+								title: "Greater Noida West",
+								areas: ["Noida Extension", "Gaur City 1 & 2", "Gaur Yamuna City", "Supertech Eco Village 1 & 2", "ATS Dolce", "ATS Advantage", "Amrapali Dream Valley", "Amrapali Sapphire", "Amrapali Silicon City", "Mahagun Mywoods", "Mahagun Moderne", "Mahagun Maple", "Panchsheel Greens", "Panchsheel Pratishtha", "Panchsheel Iconic", "Orange County", "Angel Mercury", "Angel Jupiter", "Purvanchal Royal City", "Jaypee Greens"],
+								services: ["All Legal Services", "Society Disputes", "Builder-Buyer Issues", "AOA Registration", "Commercial Litigation"]
+							},
+							{
+								title: "Indirapuram",
+								areas: ["Shipra Suncity", "Gaur Green", "Orange County", "Amrapali", "ATS Advantage", "Niti Khand", "Ahinsa Khand", "Vaibhav Khand", "Nyay Khand"],
+								services: ["Family Law", "Property Registration", "Criminal Defense", "Labour Disputes", "Commercial Litigation"]
+							},
+							{
+								title: "Vaishali",
+								areas: ["Vaishali Sector 1-6", "Mahagun Apartments", "Cloud 9", "Supertech Residency", "Saya Zenith"],
+								services: ["Matrimonial Law", "Property Matters", "Criminal Cases", "Consumer Disputes"]
+							},
+							{
+								title: "Vasundhara",
+								areas: ["SG Impressions", "Saya Zenith", "Ashiana Upvan", "Gardenia Gateway", "Gardenia Glamour"],
+								services: ["Family Disputes", "Property Registration", "Civil Litigation", "Employment Law"]
+							},
+							{
+								title: "Ghaziabad & Surrounding Areas",
+								areas: ["Ghaziabad Courts", "Dadri", "Bisrakh", "Vaidpura", "Haibatpur"],
+								services: ["All District Court Matters", "Tehsil Services", "Registration Services", "Legal Heir Certificates"]
+							}
+						].map((region, index) => (
+							<div key={index} className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-md sm:shadow-lg border border-gray-100">
+								<h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 mb-3 sm:mb-4">{region.title}</h3>
+								<div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+									<div>
+										<h4 className="text-sm sm:text-base font-semibold text-gray-800 mb-2 sm:mb-3">Coverage Areas:</h4>
+										<div className="flex flex-wrap gap-1 sm:gap-2">
+											{region.areas.map((area, areaIndex) => (
+												<span key={areaIndex} className="inline-block px-2 py-1 bg-indigo-100 text-indigo-800 text-xs sm:text-sm rounded-full">
+													{area}
+												</span>
+											))}
+										</div>
+									</div>
+									<div>
+										<h4 className="text-sm sm:text-base font-semibold text-gray-800 mb-2 sm:mb-3">Services Offered:</h4>
+										<div className="flex flex-wrap gap-1 sm:gap-2">
+											{region.services.map((service, serviceIndex) => (
+												<span key={serviceIndex} className="inline-block px-2 py-1 bg-green-100 text-green-800 text-xs sm:text-sm rounded-full">
+													{service}
+												</span>
+											))}
+										</div>
+									</div>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+
 				{/* Call to Action */}
 				<div className="relative bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl p-6 sm:p-8 lg:p-12 text-center overflow-hidden">
 					<div className="absolute inset-0 bg-black/20"></div>
@@ -313,7 +520,7 @@ function Services() {
 								Get Free Consultation
 							</Link>
 							<Link
-								to="/about"
+								to="/team"
 								className="group inline-flex items-center justify-center px-6 sm:px-8 lg:px-10 py-3 sm:py-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-bold rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-105 border-2 border-white/30 text-sm sm:text-base"
 							>
 								<svg className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 mr-2 sm:mr-3 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
