@@ -239,7 +239,7 @@ const ReviewsSlider = () => {
                         What Our Clients Say
                     </h2>
                     <p className="text-sm md:text-xl text-gray-600 max-w-2xl mx-auto">
-                        Discover the experiences and feedback from our valued clients
+                        (Discover the experiences and feedback from our valued clients)
                     </p>
                     <div className="w-16 md:w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-3 md:mt-6 rounded-full"></div>
                 </div>

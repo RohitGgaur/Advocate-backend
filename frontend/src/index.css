@@ -49,6 +49,105 @@ input:focus, textarea:focus, select:focus {
   width: 100%;
 }
 
+/* Slider Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.7s ease-in-out;
+}
+
+/* Slider pulse animation for active indicator */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(251, 191, 36, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.8);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Print Styles for Blog Detail Page */
+@media print {
+  /* Hide navigation and non-essential elements */
+  .no-print {
+    display: none !important;
+  }
+  
+  /* Ensure proper page breaks */
+  .print-break-before {
+    page-break-before: always;
+  }
+  
+  .print-break-after {
+    page-break-after: always;
+  }
+  
+  .print-break-inside-avoid {
+    page-break-inside: avoid;
+  }
+  
+  /* Blog detail specific styles */
+  .blog-print-container {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt !important;
+    line-height: 1.4 !important;
+  }
+  
+  .blog-print-title {
+    font-size: 18pt !important;
+    font-weight: bold !important;
+    color: black !important;
+    margin-bottom: 12pt !important;
+    page-break-after: avoid !important;
+  }
+  
+  .blog-print-content {
+    font-size: 11pt !important;
+    line-height: 1.5 !important;
+    color: black !important;
+    margin-bottom: 12pt !important;
+  }
+  
+  .blog-print-meta {
+    font-size: 10pt !important;
+    color: #666 !important;
+    margin-bottom: 8pt !important;
+  }
+  
+  /* Remove shadows and gradients for print */
+  .blog-print-container * {
+    box-shadow: none !important;
+    background-image: none !important;
+    background: white !important;
+  }
+  
+  /* Ensure images print properly */
+  .blog-print-container img {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid !important;
+  }
+  
+  /* Hide interactive elements */
+  button, .hover\\:scale-105, .hover\\:shadow-2xl {
+    display: none !important;
+  }
+}
+
 .typing-line {
   display: block;
   overflow: hidden;

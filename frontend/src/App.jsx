@@ -8,6 +8,7 @@ import Contact from './Component/Contact'
 import Blog from './Component/Blog'
 import BlogDetail from './Component/BlogDetail'
 import PracticeAreaDetail from './Component/PracticeAreaDetail'
+import Services from './Component/Services'
 import DisclaimerPopup from './Component/DisclaimerPopup'
 import AuthPage from './admin/AuthPage'
 import AdminDashboardPage from './admin/AdminDashboardPage'
@@ -46,7 +47,7 @@ function FloatingContact() {
           
           {/* Book Appointment Icon */}
           <a 
-            href="tel:+917065373327" 
+            href="tel:+917065767555" 
             className="flex items-center bg-blue-500 hover:bg-blue-600 text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 whitespace-nowrap"
           >
             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -72,6 +73,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/service" element={<Services />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/contact" element={<Contact />} />

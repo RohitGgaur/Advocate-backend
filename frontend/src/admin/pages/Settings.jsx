@@ -10,7 +10,7 @@ function Settings() {
 		address: 'Office No 1002, 10th Floor, Galaxy Diamond Plaza, Greater Noida West',
 		workingHours: '9:00 AM - 6:00 PM (Mon-Fri)',
 		socialMedia: {
-			facebook: '',
+			facebook: 'https://www.facebook.com/people/Judicioworks-Advocates-And-Associates/61580457930212/?rdid=prvW1VFuVFCvMmCa&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F173DVDUoYn%2F',
 			twitter: '',
 			linkedin: '',
 			instagram: ''

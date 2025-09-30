@@ -28,9 +28,27 @@ import photo20 from '../assets/Adv photos/cd2ae01c-f8c7-4ff9-b468-d39e665863a0.j
 import photo21 from '../assets/Adv photos/e34dd712-b8ed-4a0a-b4c3-5008ade41fd7.jpg'
 import photo22 from '../assets/Adv photos/ffec3bae-15ad-47cd-858a-5b6daac8d04f.jpg'
 
+// Import practice area images
+import familyLawImg from '../assets/Adv1.jpg'
+import criminalLawImg from '../assets/Adv2.jpg'
+import civilLawImg from '../assets/Adv1.jpg'
+import realEstateLawImg from '../assets/Adv2.jpg'
+import commercialLitigationImg from '../assets/Commercial litigation.png'
+import consumerProtectionImg from '../assets/Consumer protection.png'
+import claimPetitionsImg from '../assets/Claim.png'
+import labourLawImg from '../assets/Labour.png'
+import conveyancingImg from '../assets/Conveyancing and marriage registration.png'
+import writPetitionImg from '../assets/Writ and special leave petition.png'
+
+// Import slider images
+import image1 from '../assets/image1.jpg'
+import image2 from '../assets/image2.jpg'
+import image3 from '../assets/image3.jpg'
+
 function Home() {
 	const [currentSlide, setCurrentSlide] = useState(0)
 	const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
+	const [currentHeroIndex, setCurrentHeroIndex] = useState(0)
 	const [isMobile, setIsMobile] = useState(false)
 
 	const practiceAreas = [
@@ -38,72 +56,87 @@ function Home() {
 			id: 1,
 			title: "FAMILY LAW",
 			description: "At Judicioworks Advocates and Associates, we recognise the sensitive nature of family and matrimonial law matters and approach each case with both compassion and strategy. Our practice covers a wide range of family-related issues, including divorce, child custody, alimony, adoption, and matters arising from domestic concerns. We place emphasis on the well-being and best interests of our clients and their families, offering thoughtful legal advice, effective negotiation, and representation before the courts when required. We regularly assist clients before the Ld. District Courts of Ghaziabad (which includes Indirapuram, Vasundhara, and Vaishali) and in Gautam Buddha Nagar (which includes Noida, Greater Noida, and Greater Noida West), as well as before the Hon'ble High Courts and the Hon'ble Supreme Court of India.",
-			image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=300&fit=crop",
+			image: familyLawImg,
+			imageName: "Family Law",
 			readMore: "Read More"
 		},
 		{
 			id: 2,
 			title: "CRIMINAL LAW",
 			description: "Criminal law deals with offences, their prosecution, and the legal consequences that follow. At Judicioworks Advocates and Associates, our criminal law practice extends before the courts of Delhi, Ghaziabad, and Gautam Buddha Nagar. Matters arising from Indirapuram, Vaishali, and Vasundhara fall within the jurisdiction of the Ghaziabad courts, while cases from Noida, Greater Noida, and Greater Noida West are taken up before the courts of Gautam Buddha Nagar. Our advocates handle a broad spectrum of criminal cases, including serious charges such as rape, dowry death, and dowry harassment, as well as matters like traffic challans, narcotics-related offences, assault, theft, white-collar crimes, and juvenile cases. With considerable experience in criminal defence and a deep understanding of substantive and procedural law, we are committed to protecting the rights of individuals accused and ensuring due process at every stage of the proceedings.",
-			image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=300&fit=crop",
+			image: criminalLawImg,
+			imageName: "Criminal Law",
 			readMore: "Read More"
 		},
 		{
 			id: 3,
 			title: "CIVIL LAW",
 			description: "At Judicioworks Advocates and Associates, our practice in civil law covers a wide spectrum of disputes and legal concerns affecting both individuals and businesses. Civil law matters may include contracts, property disputes, family law, personal injury claims, among others. Our team is dedicated to offering informed guidance and effective representation, ensuring that each matter is approached with due care and attention to its unique circumstances. From resolving contractual issues to addressing family law concerns or pursuing rightful claims, we assist clients before the Ld. District Courts of Ghaziabad (which includes Indirapuram, Vasundhara, and Vaishali) and in Gautam Buddha Nagar (which includes Noida, Greater Noida, and Greater Noida West), as well as before the Hon'ble High Courts and the Hon'ble Supreme Court of India.",
-			image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+			image: civilLawImg,
+			imageName: "Civil Law",
 			readMore: "Read More"
 		},
 		{
 			id: 4,
 			title: "REAL ESTATE LAW",
 			description: "At Judicioworks Advocates and Associates, our real estate law practice covers matters relating to the Real Estate (Regulation and Development) Act (RERA), property disputes, and consumer protection before consumer courts. We assist clients with a wide range of concerns, including real estate transactions, drafting and reviewing contracts, and addressing disputes through negotiation, mediation, or litigation where required. Our approach is to safeguard the rights and interests of our clients by providing clear, practical, and effective legal guidance. We regularly represent clients before the Ld. District Courts of Ghaziabad (which includes Indirapuram, Vasundhara, and Vaishali) and in Gautam Buddha Nagar (which includes Noida, Greater Noida, and Greater Noida West), as well as before the Hon'ble High Courts and the Hon'ble Supreme Court of India.",
-			image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop",
+			image: realEstateLawImg,
+			imageName: "Real Estate Law",
 			readMore: "Read More"
 		},
 		{
 			id: 5,
 			title: "COMMERCIAL LITIGATION",
 			description: "At Judicioworks Advocates and Associates, our commercial litigation practice addresses a wide range of business disputes, including recovery proceedings, cheque dishonour matters, and arbitration cases. We focus on providing structured and strategic legal solutions that align with the specific requirements of each matter. Our approach is centred on protecting commercial interests through effective representation, negotiation, and, where required, proceedings before the courts or arbitral tribunals. We regularly represent clients before the Ld. District Courts of Ghaziabad (which includes Indirapuram, Vasundhara, and Vaishali) and in Gautam Buddha Nagar (which includes Noida, Greater Noida, and Greater Noida West), as well as before the Hon'ble High Courts and the Hon'ble Supreme Court of India.",
-			image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=300&fit=crop",
+			image: commercialLitigationImg,
+			imageName: "Commercial Litigation",
 			readMore: "Read More"
 		},
 		{
 			id: 6,
 			title: "CONSUMER PROTECTION LAW",
 			description: "At Judicioworks Advocates and Associates, our consumer protection practice is focused on safeguarding the rights of individuals and ensuring fairness in the marketplace. We assist clients with disputes involving defective products, deficient services, and unfair trade practices. Our approach includes providing clear legal guidance, pursuing appropriate remedies, and representing clients before consumer forums and courts where required. By addressing concerns such as faulty goods, misleading advertisements, and service deficiencies, we work to secure just outcomes for consumers. We regularly represent clients before the Ld. District Courts of Ghaziabad (which includes Indirapuram, Vasundhara, and Vaishali) and in Gautam Buddha Nagar (which includes Noida, Greater Noida, and Greater Noida West), as well as before the Hon'ble High Courts and the Hon'ble Supreme Court of India.",
-			image: "/src/assets/consumerlaw.jpg",
+			image: consumerProtectionImg,
+			imageName: "Consumer Protection Law",
 			readMore: "Read More"
 		},
 		{
 			id: 7,
 			title: "CLAIM PETITIONS",
 			description: "At Judicioworks Advocates and Associates, we handle a wide spectrum of claim petitions, including railway accident claims and motor accident claims. Our work in this area focuses on ensuring that individuals and families receive just and fair compensation for the losses they have suffered. From gathering relevant evidence to addressing insurance-related concerns and, where necessary, representing clients before the courts, we provide structured legal support throughout the process. We regularly represent clients before the Ld. District Courts of Ghaziabad (which includes Indirapuram, Vasundhara, and Vaishali) and in Gautam Buddha Nagar (which includes Noida, Greater Noida, and Greater Noida West), as well as before the Hon'ble High Courts and the Hon'ble Supreme Court of India.",
-			image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop",
+			image: claimPetitionsImg,
+			imageName: "Claim Petitions",
 			readMore: "Read More"
 		},
 		{
 			id: 8,
 			title: "LABOUR AND EMPLOYMENT LAW",
 			description: "At Judicioworks Advocates and Associates, our labour and employment law practice is designed to address the concerns of both employers and employees in an evolving workplace environment. We provide guidance on a broad range of matters, including compliance with labour regulations, employment contracts, workplace disputes, wrongful termination, discrimination, and claims relating to wages or benefits. Our approach is to offer practical solutions that safeguard rights and promote fair practices, while ensuring that each matter is handled with due care and attention. We regularly represent clients before the Ld. District Courts of Ghaziabad (which includes Indirapuram, Vasundhara, and Vaishali) and in Gautam Buddha Nagar (which includes Noida, Greater Noida, and Greater Noida West), as well as before the Hon'ble High Courts and the Hon'ble Supreme Court of India.",
-			image: "/src/assets/labourlaw.jpeg",
+			image: labourLawImg,
+			imageName: "Labour and Employment Law",
 			readMore: "Read More"
 		},
 		{
 			id: 9,
 			title: "CONVEYANCING AND COURT MARRIAGES",
 			description: "At Judicioworks Advocates and Associates, we provide comprehensive legal services in conveyancing, legal advisory, and marriage registration. Our conveyancing practice assists clients in property transactions, ensuring that documentation, registration, and compliance requirements are handled smoothly and effectively. We also provide tailored legal advice across various areas of law, addressing individual and business needs with clarity and precision. In addition, we facilitate marriage registrations, including court marriages, by assisting clients with the necessary formalities and procedures before the Tehsil Dadri, Tehsil Ghaziabad, Sub-Registrar Office Dadri, Sub-Registrar Office Noida, and Sub-Registrar Office Ghaziabad, ensuring a seamless process in compliance with applicable legal requirements.",
-			image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=300&fit=crop",
+			image: conveyancingImg,
+			imageName: "Conveyancing and Court Marriages",
 			readMore: "Read More"
 		},
 		{
 			id: 10,
 			title: "WRIT AND SPECIAL LEAVE PETITIONS",
 			description: "At Judicioworks Advocates and Associates, our practice includes handling Writ Petitions and Special Leave Petitions (SLPs) before constitutional courts. We assist clients in matters involving fundamental rights, administrative actions, and appellate reliefs. Our role encompasses drafting, filing, and presenting petitions with a focus on structured advocacy and clear legal remedies under the constitutional and statutory framework. We regularly represent clients before the Hon'ble High Courts and the Hon'ble Supreme Court of India, ensuring that each matter is pursued with diligence and precision.",
-			image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+			image: writPetitionImg,
+			imageName: "Writ and Special Leave Petitions",
 			readMore: "Read More"
 		}
+	]
+
+	// Array of hero slider images
+	const heroImages = [
+		heroImg, image1, image2, image3
 	]
 
 	// Array of all photos for the founder section
@@ -135,6 +168,15 @@ function Home() {
 
 		return () => clearInterval(timer)
 	}, [practiceAreas.length, isMobile])
+
+	// Timer for hero slider
+	useEffect(() => {
+		const heroTimer = setInterval(() => {
+			setCurrentHeroIndex((prev) => (prev + 1) % heroImages.length)
+		}, 4000) // Change hero image every 4 seconds
+
+		return () => clearInterval(heroTimer)
+	}, [heroImages.length])
 
 	// Timer for photo slider
 	useEffect(() => {
@@ -263,22 +305,30 @@ function Home() {
 				{/* Background Image with Dark Overlay */}
 				<div className="absolute inset-0">
 					<img
-						src={heroImg}
+						src={heroImages[currentHeroIndex]}
 						alt="Legal Team"
-						className="w-full h-full object-cover"
+						className="w-full h-full object-cover transition-all duration-1000 ease-in-out"
+						key={currentHeroIndex}
 					/>
 					<div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
 				</div>
 				
+
 				{/* Content Overlay */}
 				<div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 					<h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif text-white leading-tight mb-8">
 						<div>
-							<div className="heading-line text-sm sm:text-base md:text-lg font-sans font-normal mb-2">
-								Welcome to Judicioworks
+							<div className="heading-line text-sm sm:text-base md:text-lg font-sans font-normal text-white/90 mb-2">
+								Welcome to
 							</div>
-							<div className="heading-line font-bold">
+							<div className="heading-line font-bold mb-2">
+								Judicioworks
+							</div>
+							<div className="heading-line font-bold mb-2">
 								Advocates and Associates
+							</div>
+							<div className="heading-line text-sm sm:text-base md:text-lg font-sans font-normal text-white/90">
+								(The Group of Advocates You Need)
 							</div>
 						</div>
 					</h1>
@@ -288,31 +338,41 @@ function Home() {
 						</p>
 					</div>
 					<div className="flex justify-center">
-						<a 
-							href="/about" 
+						<Link
+							to="/service"
 							className="group inline-flex items-center justify-center rounded-lg bg-amber-600 hover:bg-amber-700 px-6 py-3 md:px-8 md:py-4 text-white font-semibold transition-all duration-300 transform hover:scale-105 text-sm sm:text-base md:text-lg relative overflow-hidden shadow-lg"
 						>
 							<span className="relative z-10 flex items-center">
+								<svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+								</svg>
 								<span>Explore Our Services</span>
 								<svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
 								</svg>
 							</span>
-						</a>
+						</Link>
 					</div>
 				</div>
 				
 				{/* Carousel Indicators */}
-				<div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
-					<div className="w-3 h-3 bg-white rounded-full"></div>
-					<div className="w-3 h-3 bg-white/50 rounded-full"></div>
-					<div className="w-3 h-3 bg-white/50 rounded-full"></div>
-					<div className="w-3 h-3 bg-white/50 rounded-full"></div>
+				<div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
+					{heroImages.map((_, index) => (
+						<button
+							key={index}
+							onClick={() => setCurrentHeroIndex(index)}
+							className={`w-4 h-4 rounded-full transition-all duration-300 hover:scale-125 border-2 ${
+								index === currentHeroIndex 
+									? 'bg-white border-yellow-400 shadow-lg scale-110' 
+									: 'bg-white/50 border-white/30 hover:bg-white/70 hover:border-white/50'
+							}`}
+						/>
+					))}
 				</div>
 			</section>
 
 			{/* Practice Areas Section */}
-			<section className="py-1 md:py-16 relative">
+			<section className="py-1 md:py-16 relative mt-8 md:mt-0">
 				{/* Gradient Background for Practice Areas */}
 				<div className="absolute inset-0 bg-gradient-to-b from-gray-200 via-gray-300 to-gray-400"></div>
 				<div className="absolute inset-0 bg-gradient-to-r from-blue-100/20 via-transparent to-purple-100/20"></div>
@@ -357,6 +417,10 @@ function Home() {
 														alt={area.title}
 														className="w-full h-full object-cover"
 													/>
+													{/* Image Name Overlay */}
+													<div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+														<p className="text-white text-sm font-medium">{area.imageName}</p>
+													</div>
 												</div>
 												{/* Content Section */}
 												<div className="p-4 flex flex-col flex-grow">
@@ -402,6 +466,10 @@ function Home() {
 													alt={area.title}
 													className="w-full h-full object-cover"
 												/>
+												{/* Image Name Overlay */}
+												<div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2">
+													<p className="text-white text-xs font-medium">{area.imageName}</p>
+												</div>
 											</div>
 											{/* Content Section */}
 											<div className="p-4 flex flex-col flex-grow">
@@ -496,8 +564,8 @@ function Home() {
 
 					<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-stretch">
 						{/* Founder Information */}
-						<div className="animate-fade-in-left group h-64 lg:h-[500px]">
-							<div className="bg-white/60 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-4 lg:p-8 border border-gray-300/50 shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-500 hover:bg-white/70 relative overflow-hidden h-full flex flex-col">
+						<div className="animate-fade-in-left group min-h-[400px] lg:h-[500px] flex">
+							<div className="bg-white/60 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-4 lg:p-8 border border-gray-300/50 shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-500 hover:bg-white/70 relative overflow-hidden w-full flex flex-col">
 								{/* Animated background gradient */}
 								<div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 								<div className="relative z-10 flex flex-col h-full">
@@ -534,14 +602,15 @@ function Home() {
 						</div>
 
 						{/* Photo Slider */}
-						<div className="relative animate-fade-in-right group h-64 lg:h-[500px]">
-							<div className="relative h-full rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-105">
+						<div className="relative animate-fade-in-right group min-h-[300px] lg:h-[500px]">
+							<div className="relative h-full rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:scale-105 border-4 border-yellow-400/30">
 								{/* Main Photo Display */}
 								<div className="relative h-full overflow-hidden">
 									<img
 										src={founderPhotos[currentPhotoIndex]}
 										alt={`Founder Photo ${currentPhotoIndex + 1}`}
-										className="w-full h-full object-cover transition-all duration-700 ease-in-out transform scale-105 group-hover:scale-110"
+										className="w-full h-full object-cover transition-all duration-700 ease-in-out transform scale-105 group-hover:scale-110 animate-fade-in"
+										key={currentPhotoIndex}
 									/>
 									{/* Overlay gradient */}
 									<div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent group-hover:from-black/20 transition-all duration-500"></div>
@@ -549,41 +618,41 @@ function Home() {
 									<div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-transparent to-yellow-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 								</div>
 
-								{/* Navigation Buttons */}
+								{/* Navigation Buttons - Hidden on mobile */}
 								<button
 									onClick={prevPhoto}
-									className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm text-white p-3 rounded-full shadow-lg hover:bg-yellow-400/30 hover:text-yellow-200 transition-all duration-300 border border-white/30 hover:border-yellow-400/50 hover:scale-110"
+									className="hidden md:block absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-yellow-400/80 backdrop-blur-sm text-white p-4 rounded-full shadow-xl hover:bg-yellow-500 hover:text-white transition-all duration-300 border-2 border-yellow-300 hover:border-yellow-400 hover:scale-110"
 								>
 									<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
 									</svg>
 								</button>
 								
 								<button
 									onClick={nextPhoto}
-									className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm text-white p-3 rounded-full shadow-lg hover:bg-yellow-400/30 hover:text-yellow-200 transition-all duration-300 border border-white/30 hover:border-yellow-400/50 hover:scale-110"
+									className="hidden md:block absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-yellow-400/80 backdrop-blur-sm text-white p-4 rounded-full shadow-xl hover:bg-yellow-500 hover:text-white transition-all duration-300 border-2 border-yellow-300 hover:border-yellow-400 hover:scale-110"
 								>
 									<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
 									</svg>
 								</button>
 
-								{/* Photo Counter */}
-								<div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium group-hover:bg-yellow-400/20 group-hover:text-yellow-200 transition-all duration-300">
+								{/* Photo Counter - Hidden on mobile */}
+								<div className="hidden md:block absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium group-hover:bg-yellow-400/20 group-hover:text-yellow-200 transition-all duration-300">
 									{currentPhotoIndex + 1} / {founderPhotos.length}
 								</div>
 							</div>
 
 							{/* Thumbnail Navigation */}
-							<div className="mt-6 flex justify-center space-x-2">
+							<div className="mt-6 flex justify-center space-x-3">
 								{founderPhotos.slice(0, 8).map((_, index) => (
 									<button
 										key={index}
 										onClick={() => setCurrentPhotoIndex(index)}
-										className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${
+										className={`w-4 h-4 rounded-full transition-all duration-300 hover:scale-125 border-2 ${
 											index === currentPhotoIndex 
-												? 'bg-yellow-400 w-8 shadow-lg shadow-yellow-400/50' 
-												: 'bg-white/50 hover:bg-yellow-400/70'
+												? 'bg-yellow-400 border-yellow-500 shadow-lg scale-110 animate-pulse-glow' 
+												: 'bg-gray-400 border-gray-300 hover:bg-gray-300 hover:border-gray-200'
 										}`}
 									/>
 								))}

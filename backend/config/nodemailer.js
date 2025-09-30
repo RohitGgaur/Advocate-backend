@@ -2,11 +2,24 @@ const nodemailer = require('nodemailer');
 
 // Create transporter configuration
 const createTransporter = () => {
+    const emailUser = process.env.EMAIL_USER || 'gaur0423@gmail.com';
+    const emailPass = process.env.EMAIL_PASS;
+    
+    console.log('Email configuration:');
+    console.log('EMAIL_USER:', emailUser);
+    console.log('EMAIL_PASS:', emailPass ? '***SET***' : '***NOT SET***');
+    
+    if (!emailPass) {
+        console.error('ERROR: EMAIL_PASS environment variable is not set!');
+        console.error('Please set EMAIL_PASS in your .env file with a Gmail App Password');
+        throw new Error('EMAIL_PASS environment variable is required');
+    }
+    
     return nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: process.env.EMAIL_USER || 'gaur0423@gmail.com',
-            pass: process.env.EMAIL_PASS || 'your_app_password_here' // You'll need to set this in .env
+            user: emailUser,
+            pass: emailPass
         }
     });
 };

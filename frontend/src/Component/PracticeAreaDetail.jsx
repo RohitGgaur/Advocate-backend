@@ -1,16 +1,16 @@
 import { useParams, Link } from 'react-router-dom'
 
 // Import practice area images with correct paths
-import criminalLawImage from '../assets/criminallaw.webp'
-import civilLawImage from '../assets/civillaw.webp'
-import familyLawImage from '../assets/Familylaw.webp'
-import realEstateLawImage from '../assets/realstatelaw.webp'
-import complianceImage from '../assets/complience.webp'
-import convencingLawImage from '../assets/convencinglaw.webp'
-import writLawImage from '../assets/waitlaw.webp'
-import commercialLawImage from '../assets/civillaw.webp' // Using civil law image as fallback
-import consumerLawImage from '../assets/consumerlaw.jpg'
-import laborLawImage from '../assets/labourlaw.jpeg'
+import criminalLawImage from '../assets/Adv1.jpg'
+import civilLawImage from '../assets/Adv2.jpg'
+import familyLawImage from '../assets/Adv1.jpg'
+import realEstateLawImage from '../assets/Adv2.jpg'
+import complianceImage from '../assets/Claim.png'
+import convencingLawImage from '../assets/Conveyancing and marriage registration.png'
+import writLawImage from '../assets/Writ and special leave petition.png'
+import commercialLawImage from '../assets/Commercial litigation.png'
+import consumerLawImage from '../assets/Consumer protection.png'
+import laborLawImage from '../assets/Labour.png'
 
 // Debug: Log the image paths
 console.log('Criminal Law Image:', criminalLawImage);
