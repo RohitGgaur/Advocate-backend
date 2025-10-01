@@ -1,10 +1,10 @@
 import { useParams, Link } from 'react-router-dom'
 
 // Import practice area images with correct paths
-import criminalLawImage from '../assets/Adv1.jpg'
-import civilLawImage from '../assets/Adv2.jpg'
-import familyLawImage from '../assets/Adv1.jpg'
-import realEstateLawImage from '../assets/Adv2.jpg'
+import criminalLawImage from '../assets/Criminal law.png'
+import civilLawImage from '../assets/civil.png'
+import familyLawImage from '../assets/Family.png'
+import realEstateLawImage from '../assets/Realestate.png'
 import complianceImage from '../assets/Claim.png'
 import convencingLawImage from '../assets/Conveyancing and marriage registration.png'
 import writLawImage from '../assets/Writ and special leave petition.png'
