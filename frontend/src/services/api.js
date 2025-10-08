@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://72.60.103.43:5000/api'; // Direct production API URL
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api'; // Direct production API URL
 
 class ApiService {
   constructor() {
@@ -155,24 +155,17 @@ class ApiService {
   // Blog API
   async getBlogs(params = {}) {
     const queryString = new URLSearchParams(params).toString();
-    
-    try {
-      console.log('🔍 DEBUG - getBlogs called with params:', params);
-      console.log('🔍 DEBUG - queryString:', queryString);
-      console.log('🔍 DEBUG - endpoint:', `/blogs${queryString ? `?${queryString}` : ''}`);
-      
-      const result = await this.request(`/blogs${queryString ? `?${queryString}` : ''}`);
-      console.log('🔍 DEBUG - getBlogs result:', result);
-      console.log('🔍 DEBUG - result.success:', result.success);
-      console.log('🔍 DEBUG - result.blogs:', result.blogs);
-      console.log('🔍 DEBUG - result.blogs length:', result.blogs?.length);
-      return result;
-    } catch (error) {
-      console.error('❌ API Error in getBlogs:', error);
-      console.error('❌ Error message:', error.message);
-      console.error('❌ Error stack:', error.stack);
-      throw error;
-    }
+    return this.request(`/blogs${queryString ? `?${queryString}` : ''}`);
+  }
+
+  async getPublishedBlogs(params = {}) {
+    const queryString = new URLSearchParams(params).toString();
+    return this.request(`/blogs/published${queryString ? `?${queryString}` : ''}`);
+  }
+
+  async getDraftBlogs(params = {}) {
+    const queryString = new URLSearchParams(params).toString();
+    return this.request(`/blogs/drafts${queryString ? `?${queryString}` : ''}`);
   }
 
   async getBlog(id) {
@@ -201,15 +194,31 @@ class ApiService {
 
   async getBlogStats() {
     try {
-      return await this.request('/admin/stats');
+      const response = await this.request('/admin/stats');
+      // Transform snake_case to camelCase for frontend consistency
+      if (response.success && response.stats) {
+        return {
+          success: true,
+          stats: {
+            totalBlogs: response.stats.total_blogs || 0,
+            publishedBlogs: response.stats.published_blogs || 0,
+            draftBlogs: response.stats.draft_blogs || 0,
+            totalViews: response.stats.total_views || 0
+          }
+        };
+      }
+      return response;
     } catch (error) {
       console.log('Backend not available, using mock stats');
       // Return mock stats if backend is not available
       return {
-        totalBlogs: 0,
-        publishedBlogs: 0,
-        draftBlogs: 0,
-        totalViews: 0
+        success: true,
+        stats: {
+          totalBlogs: 0,
+          publishedBlogs: 0,
+          draftBlogs: 0,
+          totalViews: 0
+        }
       };
     }
   }

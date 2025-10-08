@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import apiService from '../../services/api'
 
 function BlogManagement() {
+	const [searchParams, setSearchParams] = useSearchParams()
 	const [blogs, setBlogs] = useState([])
+	const [filteredBlogs, setFilteredBlogs] = useState([])
 	const [loading, setLoading] = useState(true)
+	const [filter, setFilter] = useState('all') // all, published, draft
 
 	const [showModal, setShowModal] = useState(false)
 	const [showDetailModal, setShowDetailModal] = useState(false)
@@ -25,14 +29,69 @@ function BlogManagement() {
 		loadBlogs()
 	}, [])
 
+	// Handle URL parameters and filtering
+	useEffect(() => {
+		const filterParam = searchParams.get('filter')
+		const createParam = searchParams.get('create')
+		
+		if (filterParam === 'published') {
+			setFilter('published')
+			loadPublishedBlogs()
+		} else if (filterParam === 'draft') {
+			setFilter('draft')
+			loadDraftBlogs()
+		} else {
+			setFilter('all')
+			loadBlogs()
+		}
+		
+		if (createParam === 'true') {
+			setShowModal(true)
+			// Remove the create parameter from URL
+			setSearchParams({})
+		}
+	}, [searchParams, setSearchParams])
+
+	// Update filtered blogs when blogs change (no client-side filtering needed)
+	useEffect(() => {
+		setFilteredBlogs(blogs)
+	}, [blogs])
+
 	const loadBlogs = async () => {
 		try {
 			setLoading(true)
+			// Load all blogs (published + drafts) for admin
 			const response = await apiService.getBlogs()
 			setBlogs(response.blogs || [])
 		} catch (error) {
 			console.error('Error loading blogs:', error)
 			alert('Failed to load blogs: ' + error.message)
+		} finally {
+			setLoading(false)
+		}
+	}
+
+	const loadPublishedBlogs = async () => {
+		try {
+			setLoading(true)
+			const response = await apiService.getPublishedBlogs()
+			setBlogs(response.blogs || [])
+		} catch (error) {
+			console.error('Error loading published blogs:', error)
+			alert('Failed to load published blogs: ' + error.message)
+		} finally {
+			setLoading(false)
+		}
+	}
+
+	const loadDraftBlogs = async () => {
+		try {
+			setLoading(true)
+			const response = await apiService.getDraftBlogs()
+			setBlogs(response.blogs || [])
+		} catch (error) {
+			console.error('Error loading draft blogs:', error)
+			alert('Failed to load draft blogs: ' + error.message)
 		} finally {
 			setLoading(false)
 		}
@@ -214,6 +273,49 @@ function BlogManagement() {
 				</div>
 			</div>
 
+			{/* Filter Buttons */}
+			<div className="flex flex-wrap gap-2">
+				<button
+					onClick={() => {
+						setFilter('all')
+						loadBlogs()
+					}}
+					className={`px-4 py-2 rounded-lg font-medium transition-colors text-sm ${
+						filter === 'all' 
+							? 'bg-blue-500 text-white' 
+							: 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+					}`}
+				>
+					All Blogs
+				</button>
+				<button
+					onClick={() => {
+						setFilter('published')
+						loadPublishedBlogs()
+					}}
+					className={`px-4 py-2 rounded-lg font-medium transition-colors text-sm ${
+						filter === 'published' 
+							? 'bg-green-500 text-white' 
+							: 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+					}`}
+				>
+					Published
+				</button>
+				<button
+					onClick={() => {
+						setFilter('draft')
+						loadDraftBlogs()
+					}}
+					className={`px-4 py-2 rounded-lg font-medium transition-colors text-sm ${
+						filter === 'draft' 
+							? 'bg-yellow-500 text-white' 
+							: 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+					}`}
+				>
+					Drafts
+				</button>
+			</div>
+
 
 			{/* Blogs List - Simple Card Layout */}
 			<div className="space-y-4">
@@ -221,12 +323,12 @@ function BlogManagement() {
 					<div className="text-center py-8 text-gray-500">
 						Loading blogs...
 					</div>
-				) : blogs.length === 0 ? (
+				) : filteredBlogs.length === 0 ? (
 					<div className="text-center py-8 text-gray-500">
-						No blogs found. Create your first blog!
+						No blogs found.
 					</div>
 				) : (
-					blogs.map((blog) => (
+					filteredBlogs.map((blog) => (
 						<div key={blog._id} className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 hover:shadow-xl transition-shadow cursor-pointer" onClick={() => handleEdit(blog)}>
 							<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
 								<div className="flex items-center space-x-3 sm:space-x-4">

@@ -70,7 +70,7 @@ app.options('*', (req, res) => {
 
 // Request logging middleware
 app.use((req, res, next) => {
-  console.log('📝 REQUEST:', req.method, req.url, 'from', req.get('origin') || req.get('referer') || 'unknown');
+  // console.log('📝 REQUEST:', req.method, req.url, 'from', req.get('origin') || req.get('referer') || 'unknown');
   next();
 });
 
@@ -96,6 +96,14 @@ mongoose.connect('mongodb+srv://gaur0423:Rohit12345@cluster0.8duo2.mongodb.net/A
 }).catch((err) => {
     console.error('❌ MongoDB connection error:', err);
     process.exit(1); // Exit if database connection fails
+});
+
+// Static files (for logo and other assets)
+app.use('/static', express.static(__dirname));
+
+// Logo endpoint
+app.get('/logo.jpg', (req, res) => {
+    res.sendFile(__dirname + '/logo.jpg');
 });
 
 // Routes

@@ -5,9 +5,9 @@ const createTransporter = () => {
     const emailUser = process.env.EMAIL_USER || 'gaur0423@gmail.com';
     const emailPass = process.env.EMAIL_PASS;
     
-    console.log('Email configuration:');
-    console.log('EMAIL_USER:', emailUser);
-    console.log('EMAIL_PASS:', emailPass ? '***SET***' : '***NOT SET***');
+    // console.log('Email configuration:');
+    // console.log('EMAIL_USER:', emailUser);
+    // console.log('EMAIL_PASS:', emailPass ? '***SET***' : '***NOT SET***');
     
     if (!emailPass) {
         console.error('ERROR: EMAIL_PASS environment variable is not set!');
@@ -27,14 +27,19 @@ const createTransporter = () => {
 // Email templates
 const email_templates = {
     contact_form: (data) => ({
-        from: process.env.EMAIL_USER || 'gaur0423@gmail.com',
-        to: 'gaur0423@gmail.com',
-        subject: `New Contact Form Submission - ${data.subject}`,
+        from: `${data.name} <${data.email}>`,
+        replyTo: data.email,
+        to: 'advocate.rishabhmalhotra5@gmail.com',
+        subject: `Contact Form: ${data.subject}`,
         html: `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-                <h2 style="color: #4f46e5; border-bottom: 2px solid #4f46e5; padding-bottom: 10px;">
-                    New Contact Form Submission
-                </h2>
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
+                <!-- Header with Logo -->
+                <div style="text-align: center; padding: 20px 0; background-color: #f8fafc; border-radius: 8px 8px 0 0;">
+                    <img src="http://localhost:5000/logo.jpg" alt="Judicioworks Logo" style="max-width: 150px; height: auto;">
+                    <h2 style="color: #4f46e5; margin: 10px 0 0 0; font-size: 24px;">
+                        New Contact Form Submission
+                    </h2>
+                </div>
                 
                 <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
                     <h3 style="color: #374151; margin-top: 0;">Contact Details</h3>
@@ -66,14 +71,19 @@ const email_templates = {
     }),
     
     review_submission: (data) => ({
-        from: process.env.EMAIL_USER || 'gaur0423@gmail.com',
-        to: 'gaur0423@gmail.com',
-        subject: `New Review Submission - ${data.name}`,
+        from: `${data.name} <${data.email}>`,
+        replyTo: data.email,
+        to: 'gaurrohit867@gmail.com',
+        subject: `Review Submission: ${data.name}`,
         html: `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-                <h2 style="color: #4f46e5; border-bottom: 2px solid #4f46e5; padding-bottom: 10px;">
-                    New Review Submission
-                </h2>
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
+                <!-- Header with Logo -->
+                <div style="text-align: center; padding: 20px 0; background-color: #f8fafc; border-radius: 8px 8px 0 0;">
+                    <img src="http://localhost:5000/logo.jpg" alt="Judicioworks Logo" style="max-width: 150px; height: auto;">
+                    <h2 style="color: #4f46e5; margin: 10px 0 0 0; font-size: 24px;">
+                        New Review Submission
+                    </h2>
+                </div>
                 
                 <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
                     <h3 style="color: #374151; margin-top: 0;">Reviewer Details</h3>

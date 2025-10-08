@@ -50,7 +50,7 @@ router.post('/submit', async (req, res) => {
                 console.error('Failed to send email notification:', email_result.error);
                 // Don't fail the request if email fails, just log it
             } else {
-                console.log('Email sent successfully to gaur0423@gmail.com');
+                console.log('Email sent successfully to gaurrohit867@gmail.com');
             }
         } catch (emailError) {
             console.error('Email sending error:', emailError);

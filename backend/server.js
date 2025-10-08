@@ -26,16 +26,16 @@ app.use((req, res, next) => {
   const contentLength = req.get('Content-Length');
   const contentType = req.get('Content-Type');
   
-  console.log('📝 REQUEST RECEIVED:');
-  console.log('📊 Method:', req.method);
-  console.log('📊 URL:', req.url);
-  console.log('📊 Content-Type:', contentType);
-  console.log('📊 Content-Length:', contentLength);
+  // console.log('📝 REQUEST RECEIVED:');
+  // console.log('📊 Method:', req.method);
+  // console.log('📊 URL:', req.url);
+  // console.log('📊 Content-Type:', contentType);
+  // console.log('📊 Content-Length:', contentLength);
   
   if (contentLength) {
     const sizeKB = (parseInt(contentLength) / 1024).toFixed(2);
     const sizeMB = (parseInt(contentLength) / (1024 * 1024)).toFixed(2);
-    console.log('📊 Size:', sizeKB, 'KB /', sizeMB, 'MB');
+    // console.log('📊 Size:', sizeKB, 'KB /', sizeMB, 'MB');
   }
   
   next();
@@ -69,10 +69,10 @@ app.use((req, res, next) => {
 
 // Error handling for large payloads
 app.use((error, req, res, next) => {
-  console.log('🚨 ERROR CAUGHT:', error.type, error.message);
+  // console.log('🚨 ERROR CAUGHT:', error.type, error.message);
   
   if (error.type === 'entity.too.large') {
-    console.log('🚨 PAYLOAD TOO LARGE - Returning 413');
+    // console.log('🚨 PAYLOAD TOO LARGE - Returning 413');
     return res.status(413).json({
       success: false,
       message: 'Payload too large! Maximum size allowed is 500MB.',
@@ -82,7 +82,7 @@ app.use((error, req, res, next) => {
   }
   
   // Handle other errors
-  console.log('🚨 OTHER ERROR:', error);
+  // console.log('🚨 OTHER ERROR:', error);
   res.status(500).json({
     success: false,
     message: 'Internal server error',

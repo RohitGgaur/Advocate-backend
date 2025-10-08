@@ -2,16 +2,22 @@ const express = require('express');
 const router = express.Router();
 const Blog = require('../models/blog_model');
 
-// Get all blogs (public endpoint)
+// Get all blogs (public endpoint with admin access to drafts)
 router.get('/', async (req, res) => {
     try {
         const { status, page = 1, limit = 50 } = req.query;
         const query = {};
         
-        // Only show published blogs for public access
+        // Check if this is an admin request (has Authorization header)
+        const isAdminRequest = req.headers.authorization && req.headers.authorization.startsWith('Bearer ');
+        
         if (status) {
             query.status = status;
+        } else if (isAdminRequest) {
+            // Admin can see all blogs (published + draft) if no status specified
+            // Don't add status filter for admin requests
         } else {
+            // Public access - only show published blogs
             query.status = 'published';
         }
 
@@ -41,7 +47,97 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Get single blog by ID (public endpoint)
+// Get all published blogs (public endpoint) - MUST be before /:id route
+router.get('/published', async (req, res) => {
+    try {
+        const { page = 1, limit = 50 } = req.query;
+        
+        const blogs = await Blog.find({ status: 'published' })
+            .populate('author', 'username email')
+            .sort({ createdAt: -1 })
+            .limit(limit * 1)
+            .skip((page - 1) * limit);
+
+        const total = await Blog.countDocuments({ status: 'published' });
+
+        res.json({
+            success: true,
+            blogs,
+            pagination: {
+                current_page: parseInt(page),
+                total_pages: Math.ceil(total / limit),
+                total_blogs: total
+            }
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'Error fetching published blogs',
+            error: error.message
+        });
+    }
+});
+
+// Get all draft blogs (admin only) - MUST be before /:id route
+router.get('/drafts', async (req, res) => {
+    try {
+        const { page = 1, limit = 50 } = req.query;
+        
+        const blogs = await Blog.find({ status: 'draft' })
+            .populate('author', 'username email')
+            .sort({ createdAt: -1 })
+            .limit(limit * 1)
+            .skip((page - 1) * limit);
+
+        const total = await Blog.countDocuments({ status: 'draft' });
+
+        res.json({
+            success: true,
+            blogs,
+            pagination: {
+                current_page: parseInt(page),
+                total_pages: Math.ceil(total / limit),
+                total_blogs: total
+            }
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'Error fetching draft blogs',
+            error: error.message
+        });
+    }
+});
+
+// Get blog statistics - MUST be before /:id route
+router.get('/stats/overview', async (req, res) => {
+    try {
+        const total_blogs = await Blog.countDocuments();
+        const published_blogs = await Blog.countDocuments({ status: 'published' });
+        const draft_blogs = await Blog.countDocuments({ status: 'draft' });
+        const total_views = await Blog.aggregate([
+            { $group: { _id: null, total: { $sum: '$views' } } }
+        ]);
+
+        res.json({
+            success: true,
+            stats: {
+                total_blogs,
+                published_blogs,
+                draft_blogs,
+                total_views: total_views[0]?.total || 0
+            }
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'Error fetching blog statistics',
+            error: error.message
+        });
+    }
+});
+
+// Get single blog by ID (public endpoint with admin access to drafts)
 router.get('/:id', async (req, res) => {
     try {
         const blog = await Blog.findById(req.params.id)
@@ -54,17 +150,22 @@ router.get('/:id', async (req, res) => {
             });
         }
 
-        // Only show published blogs for public access
-        if (blog.status !== 'published') {
+        // Check if this is an admin request
+        const isAdminRequest = req.headers.authorization && req.headers.authorization.startsWith('Bearer ');
+        
+        // Only show published blogs for public access, admin can see drafts
+        if (!isAdminRequest && blog.status !== 'published') {
             return res.status(404).json({
                 success: false,
                 message: 'Blog not found'
             });
         }
 
-        // Increment view count
-        blog.views += 1;
-        await blog.save();
+        // Increment view count only for published blogs
+        if (blog.status === 'published') {
+            blog.views += 1;
+            await blog.save();
+        }
 
         res.json({
             success: true,
@@ -207,32 +308,6 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
-// Get blog statistics
-router.get('/stats/overview', async (req, res) => {
-    try {
-        const total_blogs = await Blog.countDocuments();
-        const published_blogs = await Blog.countDocuments({ status: 'published' });
-        const draft_blogs = await Blog.countDocuments({ status: 'draft' });
-        const total_views = await Blog.aggregate([
-            { $group: { _id: null, total: { $sum: '$views' } } }
-        ]);
 
-        res.json({
-            success: true,
-            stats: {
-                total_blogs,
-                published_blogs,
-                draft_blogs,
-                total_views: total_views[0]?.total || 0
-            }
-        });
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: 'Error fetching blog statistics',
-            error: error.message
-        });
-    }
-});
 
 module.exports = router;
